@@ -1,6 +1,6 @@
 {
   "name": "@foomo/contentfultree",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "author": "foomo",
   "license": "MIT",
