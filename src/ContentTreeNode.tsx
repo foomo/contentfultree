@@ -47,10 +47,10 @@ const ContentTreeNode = (props: {
       <tr>
         <StyledContentTreeTableNodeCell depth={props.depth}>
           <StyledContentTreeNodeWedge>
-            {loading? (<StyledSpinner>&#8635;</StyledSpinner>): props.node.hasChildNodes ? props.node.expand? (
-            <a onClick={() => props.removeChildNodes(props.node)}>&#9660;</a>
+            {loading? (<StyledSpinner>-</StyledSpinner>): props.node.hasChildNodes ? props.node.expand? (
+            <a onClick={() => props.removeChildNodes(props.node)}>-</a>
             ) : (
-            <a onClick={() => addChildren()}>&#11136;</a>
+            <a onClick={() => addChildren()}>+</a>
             ): null}
           </StyledContentTreeNodeWedge>
           <Icon id={props.node.icon}></Icon>

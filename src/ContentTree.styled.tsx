@@ -41,6 +41,8 @@ export const StyledContentTreeNodeWedge = styled.div`
   text-align: left;
   a {
     cursor:pointer;
+    font-size: 130%;
+    line-height: 100%;
   }
 `
 

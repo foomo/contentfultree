@@ -82,7 +82,7 @@ var ContentTreeNode = function (props) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("tr", null,
             react_1.default.createElement(ContentTree_styled_1.StyledContentTreeTableNodeCell, { depth: props.depth },
-                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeWedge, null, loading ? (react_1.default.createElement(ContentTree_styled_1.StyledSpinner, null, "\u21BB")) : props.node.hasChildNodes ? props.node.expand ? (react_1.default.createElement("a", { onClick: function () { return props.removeChildNodes(props.node); } }, "\u25BC")) : (react_1.default.createElement("a", { onClick: function () { return addChildren(); } }, "\u2B80")) : null),
+                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeWedge, null, loading ? (react_1.default.createElement(ContentTree_styled_1.StyledSpinner, null, "-")) : props.node.hasChildNodes ? props.node.expand ? (react_1.default.createElement("a", { onClick: function () { return props.removeChildNodes(props.node); } }, "-")) : (react_1.default.createElement("a", { onClick: function () { return addChildren(); } }, "+")) : null),
                 react_1.default.createElement(Icons_1.Icon, { id: props.node.icon }),
                 react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeName, null,
                     react_1.default.createElement("a", { onClick: function () { return props.editEntry(props.node.id); }, title: props.node.id }, props.node.name))),
