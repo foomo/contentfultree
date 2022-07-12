@@ -23,6 +23,8 @@
     "use-immer": "^0.7.0"
   },
   "peerDependencies": {
+  },
+  "dependencies": {
     "contentful-management": "^10.6.3",
     "contentful-ui-extensions-sdk": "^4.8.1",
     "immer": "^9.0.15",
@@ -30,7 +32,5 @@
     "react": "^18.2.0",
     "styled-components": "^5.3.5",
     "use-immer": "^0.7.0"
-  },
-  "dependencies": {
   }
 }
