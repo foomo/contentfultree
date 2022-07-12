@@ -1,0 +1,31 @@
+{
+  "name": "@bestbytes/contentful-tree",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "author": "bestbytes",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clean": "rm -f ./tsconfig.tsbuildinfo && rm -rvf dist",
+    "build": "yarn clean && tsc -b -v .",
+    "dev": "yarn tsc -b tsconfig.json -w"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.14",
+    "@types/styled-components": "^5.1.25",
+    "eslint": "^8.18.0",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "contentful-management": "^10.6.3",
+    "contentful-ui-extensions-sdk": "^4.8.1",
+    "immer": "^9.0.15",
+    "install-peers": "^1.0.4",
+    "react": "17",
+    "styled-components": "^5.3.5",
+    "use-immer": "^0.7.0"
+  }
+}
