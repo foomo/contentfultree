@@ -1,6 +1,6 @@
 {
   "name": "@foomo/contentfultree",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "author": "foomo",
   "license": "MIT",
@@ -10,23 +10,22 @@
     "dev": "yarn tsc -b tsconfig.json -w"
   },
   "devDependencies": {
-    "@types/react": "^18.0.14",
-    "@types/styled-components": "^5.1.25",
-    "eslint": "^8.18.0",
-    "typescript": "^4.7.4",
+    "@types/react": "^18.0.20",
+    "@types/styled-components": "^5.1.26",
     "contentful-management": "^10.6.3",
     "contentful-ui-extensions-sdk": "^4.8.1",
+    "eslint": "^8.23.1",
     "immer": "^9.0.15",
     "install-peers": "^1.0.4",
     "react": "18.2.0",
     "styled-components": "^5.3.5",
+    "typescript": "^4.8.3",
     "use-immer": "^0.7.0"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
-    "contentful-management": "^10.6.3",
-    "contentful-ui-extensions-sdk": "^4.8.1",
+    "contentful-management": "^10.15.0",
+    "contentful-ui-extensions-sdk": "^4.12.1",
     "immer": "^9.0.15",
     "install-peers": "^1.0.4",
     "react": "^18.2.0",
