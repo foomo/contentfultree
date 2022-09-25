@@ -7,27 +7,46 @@
   "scripts": {
     "clean": "rm -f ./tsconfig.tsbuildinfo && rm -rvf dist",
     "build": "yarn clean && tsc -b -v .",
-    "dev": "yarn tsc -b tsconfig.json -w"
+    "dev": "yarn tsc -b tsconfig.json -w",
+    "lint": "eslint --ext=js,jsx,ts,tsx,json .",
+    "lint:fix": "eslint --ext=js,jsx,ts,tsx,json . --fix"
+  },
+  "prettier": {
+    "useTabs": true,
+		"tabWidth": 2,
+		"singleQuote": true
   },
   "devDependencies": {
     "@types/react": "^18.0.20",
     "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "contentful-management": "^10.6.3",
     "contentful-ui-extensions-sdk": "^4.8.1",
-    "eslint": "^8.23.1",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.8",
     "immer": "^9.0.15",
     "install-peers": "^1.0.4",
+    "prettier": "2.7.1",
     "react": "18.2.0",
     "styled-components": "^5.3.5",
-    "typescript": "^4.8.3",
+    "typescript": "*",
     "use-immer": "^0.7.0"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "install-peers": "^1.0.4"
+  },
   "dependencies": {
     "contentful-management": "^10.15.0",
     "contentful-ui-extensions-sdk": "^4.12.1",
     "immer": "^9.0.15",
-    "install-peers": "^1.0.4",
     "react": "^18.2.0",
     "styled-components": "^5.3.5",
     "use-immer": "^0.7.0"
