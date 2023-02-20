@@ -31,11 +31,8 @@ const ContentTreeNode = (props: {
 	editEntry: (nodeId: string) => Promise<void>;
 }): ReactElement => {
 	const [loading, setLoading] = useState(false);
-	const [node] = useState(props.node);
 
-	// React.useEffect(()=>{setLoading(false)},[props.node.childNodes])
-
-	const addChildren = async (): Promise<void> => {
+	const addChildren = async (node: ContentTreeNodeProps): Promise<void> => {
 		setLoading(true);
 		await props.addChildNodes(node);
 		setLoading(false);
@@ -47,8 +44,8 @@ const ContentTreeNode = (props: {
 		});
 	};
 
-	const handleAddChildren = (): void => {
-		addChildren().catch((err) => {
+	const handleAddChildren = (node: ContentTreeNodeProps): void => {
+		addChildren(node).catch((err) => {
 			throw new Error('handleAddChildren', err);
 		});
 	};
@@ -62,9 +59,9 @@ const ContentTreeNode = (props: {
 							<StyledSpinner>-</StyledSpinner>
 						) : props.node.hasChildNodes ? (
 							props.node.expand ? (
-								<a onClick={() => props.removeChildNodes(props.node)}>-</a>
+								<a onClick={() => handleAddChildren(props.node)}>+</a>
 							) : (
-								<a onClick={() => handleAddChildren()}>+</a>
+								<a onClick={() => props.removeChildNodes(props.node)}>-</a>
 							)
 						) : null}
 					</StyledContentTreeNodeWedge>
@@ -89,7 +86,7 @@ const ContentTreeNode = (props: {
 			{props.node.childNodes?.map((node, i) => {
 				return (
 					<ContentTreeNode
-						key={i}
+						key={i.toString()}
 						node={node}
 						depth={props.depth && props.depth + 1}
 						addChildNodes={props.addChildNodes}

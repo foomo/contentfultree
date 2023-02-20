@@ -6,8 +6,10 @@ export interface UiPalette {
 }
 
 export const StyledContentTreeTable = styled.table`
+	width: 100%;
 	color: black;
 	border: 0;
+	padding: 0 60px;
 	margin: 0 auto;
 	td {
 		padding: 0.2em 1em 0.2em 0.2em;
