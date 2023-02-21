@@ -19,20 +19,30 @@ export interface ContentTreeRootProps {
 	nodeContentTypes: string[];
 	titleFields: string[];
 	locales: string[]; // the first is the default locale
+	depth: number;
 	iconRegistry?: { [index: string]: string };
 }
 
-export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
-	const [stLocale] = useState(props.locales[0]);
+export const ContentTreeRoot = ({
+	node,
+	sdkInstance,
+	cma,
+	nodeContentTypes,
+	titleFields,
+	locales,
+	depth,
+	iconRegistry,
+}: ContentTreeRootProps): ReactElement => {
+	const [stLocale] = useState(locales[0]);
 	const [stRoot, setStRoot] = useImmer(emptyNodeProps());
 
 	useEffect(() => {
-		if (props.node.id) {
-			loadRootData(props.node).catch((err) => {
+		if (node.id) {
+			loadRootData(node).catch((err) => {
 				throw new Error('loadRootData', err);
 			});
 		}
-	}, [props.node]);
+	}, [node]);
 
 	const loadRootData = async (
 		rootNode: ContentTreeNodeProps
@@ -40,11 +50,11 @@ export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
 		const childEntries = await getContentfulChildEntries(rootNode.id);
 		const childNodes = cfEntriesToNodes(
 			childEntries,
-			props.titleFields,
+			titleFields,
 			stLocale,
-			props.locales,
-			props.nodeContentTypes,
-			props.iconRegistry,
+			locales,
+			nodeContentTypes,
+			iconRegistry,
 			rootNode.id
 		);
 		const nodes = [rootNode, ...childNodes];
@@ -76,11 +86,11 @@ export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
 		const cfChildren = await getContentfulChildEntries(node.id);
 		childNodes = cfEntriesToNodes(
 			cfChildren,
-			props.titleFields,
+			titleFields,
 			stLocale,
-			props.locales,
-			props.nodeContentTypes,
-			props.iconRegistry,
+			locales,
+			nodeContentTypes,
+			iconRegistry,
 			node.id
 		);
 		setStRoot((draft) => {
@@ -111,16 +121,16 @@ export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
 	};
 
 	const editEntry = async (entryId: string): Promise<void> => {
-		await props.sdkInstance.navigator.openEntry(entryId, { slideIn: true });
+		await sdkInstance.navigator.openEntry(entryId, { slideIn: true });
 	};
 
 	const getContentfulChildEntries = async (
 		parentId: string
 	): Promise<Array<EntryProps<KeyValueMap>>> => {
-		const parentItem = await props.cma.entry.get({ entryId: parentId });
+		const parentItem = await cma.entry.get({ entryId: parentId });
 		const allChildIds: string[] = [];
 		for (const key of Object.keys(parentItem.fields)) {
-			if (props.nodeContentTypes.includes(key)) {
+			if (nodeContentTypes.includes(key)) {
 				const childNodeRefs = parentItem.fields[key][stLocale] as
 					| Link<string>
 					| Array<Link<string>>;
@@ -137,7 +147,7 @@ export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
 		let done = false;
 		let skip = 0;
 		while (!done) {
-			const col = await props.cma.entry.getMany({
+			const col = await cma.entry.getMany({
 				query: {
 					'sys.id[in]': allChildIds.join(','),
 					skip,
@@ -192,7 +202,7 @@ export const ContentTreeRoot = (props: ContentTreeRootProps): ReactElement => {
 					</tr>
 					<ContentTreeNode
 						node={stRoot}
-						depth={1}
+						depth={depth}
 						addChildNodes={addChildNodes}
 						removeChildNodes={removeChildNodes}
 						editEntry={editEntry}
