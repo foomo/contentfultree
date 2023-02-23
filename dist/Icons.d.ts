@@ -1,5 +1,5 @@
 import { FC, ReactElement, SVGProps } from 'react';
-export declare type SVGIcon = FC<SVGProps<SVGSVGElement>>;
+export type SVGIcon = FC<SVGProps<SVGSVGElement>>;
 export interface IconProps {
     icon?: SVGIcon;
 }
