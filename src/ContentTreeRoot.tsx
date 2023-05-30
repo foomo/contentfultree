@@ -4,7 +4,7 @@ import {
 	Link,
 	PlainClientAPI,
 } from 'contentful-management';
-import { PageExtensionSDK } from 'contentful-ui-extensions-sdk';
+import { PageAppSDK } from 'contentful-ui-extensions-sdk';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useImmer } from 'use-immer';
 
@@ -14,7 +14,7 @@ import { emptyNodeProps, cfEntriesToNodes } from './ContentTreeUtils';
 
 export interface ContentTreeRootProps {
 	node: ContentTreeNodeProps;
-	sdkInstance: PageExtensionSDK;
+	sdkInstance: PageAppSDK;
 	cma: PlainClientAPI;
 	nodeContentTypes: string[];
 	titleFields: string[];
