@@ -1,7 +1,6 @@
-import { PlainClientAPI } from 'contentful-management';
-import { PageAppSDK } from 'contentful-ui-extensions-sdk';
-import React, { ReactElement, useEffect, useState } from 'react';
-import { useImmer } from 'use-immer';
+import { type PlainClientAPI } from 'contentful-management';
+import { type PageAppSDK } from 'contentful-ui-extensions-sdk';
+import React, { type ReactElement, useEffect, useState } from 'react';
 import { ContentTreeRoot } from './ContentTreeRoot';
 import { emptyNodeProps, cfEntriesToNodes } from './ContentTreeUtils';
 
@@ -13,7 +12,7 @@ export interface ContentTreeProps {
 	titleFields: string[];
 	locales: string[]; // the first is the default locale
 	indentation?: number;
-	iconRegistry?: { [index: string]: string };
+	iconRegistry?: Record<string, string>;
 }
 
 export const ContentTree = ({
@@ -27,7 +26,7 @@ export const ContentTree = ({
 	iconRegistry,
 }: ContentTreeProps): ReactElement => {
 	const [stLocale] = useState(locales[0]);
-	const [rootNodes, setRootNodes] = useImmer([emptyNodeProps()]);
+	const [rootNodes, setRootNodes] = useState([emptyNodeProps()]);
 
 	useEffect(() => {
 		if (sdkInstance) {

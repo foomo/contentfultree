@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, SVGProps } from 'react';
+import React, { type FC, type ReactElement, type SVGProps } from 'react';
 import styled from 'styled-components';
 
 export type SVGIcon = FC<SVGProps<SVGSVGElement>>;

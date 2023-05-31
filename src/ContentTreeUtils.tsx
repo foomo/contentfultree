@@ -1,5 +1,5 @@
-import { EntryProps, KeyValueMap } from 'contentful-management';
-import { ContentTreeNodeProps } from './ContentTreeNode';
+import { type EntryProps, type KeyValueMap } from 'contentful-management';
+import { type ContentTreeNodeProps } from './ContentTreeNode';
 
 export const emptyNodeProps = (): ContentTreeNodeProps => {
 	return { id: '', name: '', expand: false, parentId: '' };
@@ -36,7 +36,7 @@ export const cfEntriesToNodes = (
 	stLocale: string,
 	locales: string[],
 	nodeContentTypes: string[],
-	iconRegistry?: { [index: string]: string },
+	iconRegistry?: Record<string, string>,
 	parentId?: string
 ): ContentTreeNodeProps[] => {
 	if (entries.length === 0) {

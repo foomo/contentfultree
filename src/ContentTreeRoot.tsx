@@ -1,16 +1,15 @@
 import {
-	EntryProps,
-	KeyValueMap,
-	Link,
-	PlainClientAPI,
+	type EntryProps,
+	type KeyValueMap,
+	type Link,
+	type PlainClientAPI,
 } from 'contentful-management';
-import { PageAppSDK } from 'contentful-ui-extensions-sdk';
-import React, { ReactElement, useEffect, useState } from 'react';
-import { useImmer } from 'use-immer';
+import { type PageAppSDK } from 'contentful-ui-extensions-sdk';
+import React, { type ReactElement, useEffect, useState } from 'react';
 
 import { StyledContentTreeTable } from './ContentTree.styled';
-import ContentTreeNode, { ContentTreeNodeProps } from './ContentTreeNode';
-import { emptyNodeProps, cfEntriesToNodes } from './ContentTreeUtils';
+import ContentTreeNode, { type ContentTreeNodeProps } from './ContentTreeNode';
+import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils';
 
 export interface ContentTreeRootProps {
 	node: ContentTreeNodeProps;
@@ -20,7 +19,7 @@ export interface ContentTreeRootProps {
 	titleFields: string[];
 	locales: string[]; // the first is the default locale
 	depth: number;
-	iconRegistry?: { [index: string]: string };
+	iconRegistry?: Record<string, string>;
 }
 
 export const ContentTreeRoot = ({
@@ -34,7 +33,7 @@ export const ContentTreeRoot = ({
 	iconRegistry,
 }: ContentTreeRootProps): ReactElement => {
 	const [stLocale] = useState(locales[0]);
-	const [stRoot, setStRoot] = useImmer(emptyNodeProps());
+	const [stRoot, setStRoot] = useState(emptyNodeProps());
 
 	useEffect(() => {
 		if (node.id) {
@@ -93,15 +92,18 @@ export const ContentTreeRoot = ({
 			iconRegistry,
 			node.id
 		);
-		setStRoot((draft) => {
+
+		setStRoot((prevState) => {
+			const newState = { ...prevState };
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
 					targetNode.childNodes = childNodes;
 					targetNode.expand = false;
 				},
-				draft
+				newState
 			);
+			return newState;
 		});
 	};
 
@@ -161,7 +163,7 @@ export const ContentTreeRoot = ({
 			}
 		}
 		const cfChildren: Array<EntryProps<KeyValueMap>> = [];
-		const idPositionMap: { [index: string]: number } = allItems.reduce(
+		const idPositionMap: Record<string, number> = allItems.reduce(
 			(acc: any, el, i) => {
 				acc[el.sys.id] = i;
 				return acc;
@@ -177,15 +179,17 @@ export const ContentTreeRoot = ({
 	};
 
 	const removeChildNodes = (node: ContentTreeNodeProps): void => {
-		setStRoot((draft) => {
+		setStRoot((prevState) => {
+			const newState = { ...prevState };
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
 					targetNode.childNodes = [];
 					targetNode.expand = true;
 				},
-				draft
+				newState
 			);
+			return newState;
 		});
 	};
 

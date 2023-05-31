@@ -26,13 +26,13 @@
 		"eslint-config-standard-with-typescript": "^34.0.0",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-json": "3.1.0",
-		"eslint-plugin-n": "^15.6.1",
+		"eslint-plugin-n": "^16.0.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-promise": "^6.1.1",
 		"eslint-plugin-react": "^7.32.2",
 		"install-peers": "^1.0.4",
-		"prettier": "2.8.4",
-		"typescript": "4.9.5"
+		"prettier": "2.8.8",
+		"typescript": "5.0.4"
 	},
 	"peerDependencies": {
 		"install-peers": "^1.0.4"
@@ -40,9 +40,8 @@
 	"dependencies": {
 		"contentful-management": "10.35.4",
 		"contentful-ui-extensions-sdk": "4.17.2",
-		"immer": "9.0.19",
+		"immer": "10.0.2",
 		"react": "18.2.0",
-		"styled-components": "5.3.6",
-		"use-immer": "0.8.1"
+		"styled-components": "5.3.11"
 	}
 }

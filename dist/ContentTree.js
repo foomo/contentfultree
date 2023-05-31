@@ -61,13 +61,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentTree = void 0;
 var react_1 = __importStar(require("react"));
-var use_immer_1 = require("use-immer");
 var ContentTreeRoot_1 = require("./ContentTreeRoot");
 var ContentTreeUtils_1 = require("./ContentTreeUtils");
 var ContentTree = function (_a) {
     var sdkInstance = _a.sdkInstance, cma = _a.cma, rootType = _a.rootType, nodeContentTypes = _a.nodeContentTypes, titleFields = _a.titleFields, locales = _a.locales, _b = _a.indentation, indentation = _b === void 0 ? 1 : _b, iconRegistry = _a.iconRegistry;
     var stLocale = (0, react_1.useState)(locales[0])[0];
-    var _c = (0, use_immer_1.useImmer)([(0, ContentTreeUtils_1.emptyNodeProps)()]), rootNodes = _c[0], setRootNodes = _c[1];
+    var _c = (0, react_1.useState)([(0, ContentTreeUtils_1.emptyNodeProps)()]), rootNodes = _c[0], setRootNodes = _c[1];
     (0, react_1.useEffect)(function () {
         if (sdkInstance) {
             loadData().catch(function (err) {

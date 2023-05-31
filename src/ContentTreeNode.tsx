@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { type ReactElement, useState } from 'react';
 
 import {
 	StyledContentTreeNodeName,
@@ -59,15 +59,32 @@ const ContentTreeNode = (props: {
 							<StyledSpinner>-</StyledSpinner>
 						) : props.node.hasChildNodes ? (
 							props.node.expand ? (
-								<a onClick={() => handleAddChildren(props.node)}>+</a>
+								<a
+									onClick={() => {
+										handleAddChildren(props.node);
+									}}
+								>
+									+
+								</a>
 							) : (
-								<a onClick={() => props.removeChildNodes(props.node)}>-</a>
+								<a
+									onClick={() => {
+										props.removeChildNodes(props.node);
+									}}
+								>
+									-
+								</a>
 							)
 						) : null}
 					</StyledContentTreeNodeWedge>
 					<Icon id={props.node.icon}></Icon>
 					<StyledContentTreeNodeName>
-						<a onClick={() => handleEditEntry()} title={props.node.id}>
+						<a
+							onClick={() => {
+								handleEditEntry();
+							}}
+							title={props.node.id}
+						>
 							{props.node.name}
 						</a>
 					</StyledContentTreeNodeName>

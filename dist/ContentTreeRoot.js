@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -73,14 +84,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContentTreeRoot = void 0;
 var react_1 = __importStar(require("react"));
-var use_immer_1 = require("use-immer");
 var ContentTree_styled_1 = require("./ContentTree.styled");
 var ContentTreeNode_1 = __importDefault(require("./ContentTreeNode"));
 var ContentTreeUtils_1 = require("./ContentTreeUtils");
 var ContentTreeRoot = function (_a) {
     var node = _a.node, sdkInstance = _a.sdkInstance, cma = _a.cma, nodeContentTypes = _a.nodeContentTypes, titleFields = _a.titleFields, locales = _a.locales, depth = _a.depth, iconRegistry = _a.iconRegistry;
     var stLocale = (0, react_1.useState)(locales[0])[0];
-    var _b = (0, use_immer_1.useImmer)((0, ContentTreeUtils_1.emptyNodeProps)()), stRoot = _b[0], setStRoot = _b[1];
+    var _b = (0, react_1.useState)((0, ContentTreeUtils_1.emptyNodeProps)()), stRoot = _b[0], setStRoot = _b[1];
     (0, react_1.useEffect)(function () {
         if (node.id) {
             loadRootData(node).catch(function (err) {
@@ -133,11 +143,13 @@ var ContentTreeRoot = function (_a) {
                 case 1:
                     cfChildren = _a.sent();
                     childNodes = (0, ContentTreeUtils_1.cfEntriesToNodes)(cfChildren, titleFields, stLocale, locales, nodeContentTypes, iconRegistry, node.id);
-                    setStRoot(function (draft) {
+                    setStRoot(function (prevState) {
+                        var newState = __assign({}, prevState);
                         recursiveProcessNodes(node.id, function (targetNode) {
                             targetNode.childNodes = childNodes;
                             targetNode.expand = false;
-                        }, draft);
+                        }, newState);
+                        return newState;
                     });
                     return [2];
             }
@@ -226,11 +238,13 @@ var ContentTreeRoot = function (_a) {
         });
     }); };
     var removeChildNodes = function (node) {
-        setStRoot(function (draft) {
+        setStRoot(function (prevState) {
+            var newState = __assign({}, prevState);
             recursiveProcessNodes(node.id, function (targetNode) {
                 targetNode.childNodes = [];
                 targetNode.expand = true;
-            }, draft);
+            }, newState);
+            return newState;
         });
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,

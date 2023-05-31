@@ -81,19 +81,19 @@ const getPublishingStatusColors = (status: string): UiPalette | undefined => {
 export const StyledContentTreeNodePublishingStatus = styled.div<{
 	status: string;
 }>`
-  display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  font-weight: 600;
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.06rem;
-  border-radius: 4px;
-  padding: 0 0.2rem;
-  color: ${(props) =>
+	display: inline-block;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+		sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	font-weight: 600;
+	font-size: 80%;
+	text-transform: uppercase;
+	letter-spacing: 0.06rem;
+	border-radius: 4px;
+	padding: 0 0.2rem;
+	color: ${(props) =>
 		getPublishingStatusColors(props.status)?.publishingStatusFg} !important;
-  background-color: ${(props) =>
+	background-color: ${(props) =>
 		getPublishingStatusColors(props.status)?.publishingStatusBg} !important;
-}
 `;
 
 export const StyledSpinner = styled.div`

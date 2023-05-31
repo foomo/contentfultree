@@ -91,10 +91,16 @@ var ContentTreeNode = function (props) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("tr", null,
             react_1.default.createElement(ContentTree_styled_1.StyledContentTreeTableNodeCell, { depth: props.depth },
-                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeWedge, null, loading ? (react_1.default.createElement(ContentTree_styled_1.StyledSpinner, null, "-")) : props.node.hasChildNodes ? (props.node.expand ? (react_1.default.createElement("a", { onClick: function () { return handleAddChildren(props.node); } }, "+")) : (react_1.default.createElement("a", { onClick: function () { return props.removeChildNodes(props.node); } }, "-"))) : null),
+                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeWedge, null, loading ? (react_1.default.createElement(ContentTree_styled_1.StyledSpinner, null, "-")) : props.node.hasChildNodes ? (props.node.expand ? (react_1.default.createElement("a", { onClick: function () {
+                        handleAddChildren(props.node);
+                    } }, "+")) : (react_1.default.createElement("a", { onClick: function () {
+                        props.removeChildNodes(props.node);
+                    } }, "-"))) : null),
                 react_1.default.createElement(Icons_1.Icon, { id: props.node.icon }),
                 react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeName, null,
-                    react_1.default.createElement("a", { onClick: function () { return handleEditEntry(); }, title: props.node.id }, props.node.name))),
+                    react_1.default.createElement("a", { onClick: function () {
+                            handleEditEntry();
+                        }, title: props.node.id }, props.node.name))),
             react_1.default.createElement("td", null, props.node.contentType),
             react_1.default.createElement("td", null,
                 react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodePublishingStatus, { status: (_a = props.node.publishingStatus) !== null && _a !== void 0 ? _a : '' }, props.node.publishingStatus)),
