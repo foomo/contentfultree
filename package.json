@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.1.12",
+	"version": "0.1.13",
 	"main": "dist/index.js",
 	"author": "foomo",
 	"license": "MIT",
@@ -37,10 +37,12 @@
 	"peerDependencies": {
 		"install-peers": "^1.0.4"
 	},
-	"dependencies": {
-		"contentful-management": "10.39.1",
-		"contentful-ui-extensions-sdk": "4.22.1",
+	"optionalDependencies": {
 		"react": "18.2.0",
 		"styled-components": "5.3.11"
+	},
+	"dependencies": {
+		"contentful-management": "10.39.1",
+		"contentful-ui-extensions-sdk": "4.22.1"
 	}
 }
