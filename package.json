@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.1.16",
+	"version": "0.1.17",
 	"main": "dist/index.js",
 	"author": "foomo",
 	"license": "MIT",
@@ -42,7 +42,7 @@
 		"styled-components": "5.3.11"
 	},
 	"dependencies": {
-		"contentful-management": "11.2.0",
+		"contentful-management": "11.5.1",
 		"contentful-ui-extensions-sdk": "4.23.1"
 	}
 }
