@@ -8,7 +8,7 @@ export const emptyNodeProps = (): ContentTreeNodeProps => {
 const cfEntryHasChildren = (
 	entry: EntryProps<KeyValueMap>,
 	nodeContentTypes: string[],
-	locales: string[]
+	locales: string[],
 ): boolean => {
 	for (const nodeContentType of nodeContentTypes) {
 		for (const locale of locales) {
@@ -37,7 +37,7 @@ export const cfEntriesToNodes = (
 	locales: string[],
 	nodeContentTypes: string[],
 	iconRegistry?: Record<string, string>,
-	parentId?: string
+	parentId?: string,
 ): ContentTreeNodeProps[] => {
 	if (entries.length === 0) {
 		return [];

@@ -37,14 +37,14 @@ export const ContentTreeRoot = ({
 
 	useEffect(() => {
 		if (node.id) {
-			loadRootData(node).catch((err) => {
+			loadRootData(node).catch((err: ErrorOptions) => {
 				throw new Error('loadRootData', err);
 			});
 		}
 	}, [node]);
 
 	const loadRootData = async (
-		rootNode: ContentTreeNodeProps
+		rootNode: ContentTreeNodeProps,
 	): Promise<void> => {
 		const childEntries = await getContentfulChildEntries(rootNode.id);
 		const childNodes = cfEntriesToNodes(
@@ -54,7 +54,7 @@ export const ContentTreeRoot = ({
 			locales,
 			nodeContentTypes,
 			iconRegistry,
-			rootNode.id
+			rootNode.id,
 		);
 		const nodes = [rootNode, ...childNodes];
 		if (nodes.length > 0) {
@@ -90,7 +90,7 @@ export const ContentTreeRoot = ({
 			locales,
 			nodeContentTypes,
 			iconRegistry,
-			node.id
+			node.id,
 		);
 
 		setStRoot((prevState) => {
@@ -101,7 +101,7 @@ export const ContentTreeRoot = ({
 					targetNode.childNodes = childNodes;
 					targetNode.expand = false;
 				},
-				newState
+				newState,
 			);
 			return newState;
 		});
@@ -110,7 +110,7 @@ export const ContentTreeRoot = ({
 	const recursiveProcessNodes = (
 		targetNodeId: string,
 		processNode: (node: ContentTreeNodeProps) => void,
-		node: ContentTreeNodeProps
+		node: ContentTreeNodeProps,
 	): void => {
 		if (node.id === targetNodeId) {
 			processNode(node);
@@ -127,7 +127,7 @@ export const ContentTreeRoot = ({
 	};
 
 	const getContentfulChildEntries = async (
-		parentId: string
+		parentId: string,
 	): Promise<Array<EntryProps<KeyValueMap>>> => {
 		const parentItem = await cma.entry.get({ entryId: parentId });
 		const allChildIds: string[] = [];
@@ -168,7 +168,7 @@ export const ContentTreeRoot = ({
 				acc[el.sys.id] = i;
 				return acc;
 			},
-			{}
+			{},
 		);
 		for (const childId of allChildIds) {
 			if (allItems[idPositionMap[childId]]) {
@@ -187,7 +187,7 @@ export const ContentTreeRoot = ({
 					targetNode.childNodes = [];
 					targetNode.expand = true;
 				},
-				newState
+				newState,
 			);
 			return newState;
 		});

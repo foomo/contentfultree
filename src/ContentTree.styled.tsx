@@ -30,8 +30,8 @@ export const StyledContentTreeTable = styled.table`
 	}
 `;
 
-export const StyledContentTreeTableNodeCell = styled.td<{ depth?: number }>`
-	padding-left: ${(props) => props.depth}em !important;
+export const StyledContentTreeTableNodeCell = styled.td<{ $depth?: number }>`
+	padding-left: ${(props) => props.$depth}em !important;
 	padding-right: 2em !important;
 	color: black !important;
 	min-width: 450px !important;
@@ -79,11 +79,19 @@ const getPublishingStatusColors = (status: string): UiPalette | undefined => {
 };
 
 export const StyledContentTreeNodePublishingStatus = styled.div<{
-	status: string;
+	$status: string;
 }>`
 	display: inline-block;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-		sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		Segoe UI,
+		Helvetica,
+		Arial,
+		sans-serif,
+		Apple Color Emoji,
+		Segoe UI Emoji,
+		Segoe UI Symbol;
 	font-weight: 600;
 	font-size: 80%;
 	text-transform: uppercase;
@@ -91,9 +99,9 @@ export const StyledContentTreeNodePublishingStatus = styled.div<{
 	border-radius: 4px;
 	padding: 0 0.2rem;
 	color: ${(props) =>
-		getPublishingStatusColors(props.status)?.publishingStatusFg} !important;
+		getPublishingStatusColors(props.$status)?.publishingStatusFg} !important;
 	background-color: ${(props) =>
-		getPublishingStatusColors(props.status)?.publishingStatusBg} !important;
+		getPublishingStatusColors(props.$status)?.publishingStatusBg} !important;
 `;
 
 export const StyledSpinner = styled.div`

@@ -30,7 +30,7 @@ export const ContentTree = ({
 
 	useEffect(() => {
 		if (sdkInstance) {
-			loadData().catch((err) => {
+			loadData().catch((err: ErrorOptions) => {
 				throw new Error('loadRootData', err);
 			});
 		}
@@ -46,7 +46,7 @@ export const ContentTree = ({
 			stLocale,
 			locales,
 			nodeContentTypes,
-			iconRegistry
+			iconRegistry,
 		);
 		setRootNodes(nodes);
 	};

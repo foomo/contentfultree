@@ -90,7 +90,7 @@ var ContentTreeNode = function (props) {
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("tr", null,
-            react_1.default.createElement(ContentTree_styled_1.StyledContentTreeTableNodeCell, { depth: props.depth },
+            react_1.default.createElement(ContentTree_styled_1.StyledContentTreeTableNodeCell, { "$depth": props.depth },
                 react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodeWedge, null, loading ? (react_1.default.createElement(ContentTree_styled_1.StyledSpinner, null, "-")) : props.node.hasChildNodes ? (props.node.expand ? (react_1.default.createElement("a", { onClick: function () {
                         handleAddChildren(props.node);
                     } }, "+")) : (react_1.default.createElement("a", { onClick: function () {
@@ -103,7 +103,7 @@ var ContentTreeNode = function (props) {
                         }, title: props.node.id }, props.node.name))),
             react_1.default.createElement("td", null, props.node.contentType),
             react_1.default.createElement("td", null,
-                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodePublishingStatus, { status: (_a = props.node.publishingStatus) !== null && _a !== void 0 ? _a : '' }, props.node.publishingStatus)),
+                react_1.default.createElement(ContentTree_styled_1.StyledContentTreeNodePublishingStatus, { "$status": (_a = props.node.publishingStatus) !== null && _a !== void 0 ? _a : '' }, props.node.publishingStatus)),
             react_1.default.createElement("td", null, props.node.updatedAt),
             react_1.default.createElement("td", null, props.node.publishedAt)), (_b = props.node.childNodes) === null || _b === void 0 ? void 0 :
         _b.map(function (node, i) {

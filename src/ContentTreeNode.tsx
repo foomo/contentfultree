@@ -39,13 +39,13 @@ const ContentTreeNode = (props: {
 	};
 
 	const handleEditEntry = (): void => {
-		props.editEntry(props.node.id).catch((err) => {
+		props.editEntry(props.node.id).catch((err: ErrorOptions) => {
 			throw new Error('handleEditEntry', err);
 		});
 	};
 
 	const handleAddChildren = (node: ContentTreeNodeProps): void => {
-		addChildren(node).catch((err) => {
+		addChildren(node).catch((err: ErrorOptions) => {
 			throw new Error('handleAddChildren', err);
 		});
 	};
@@ -53,7 +53,7 @@ const ContentTreeNode = (props: {
 	return (
 		<>
 			<tr>
-				<StyledContentTreeTableNodeCell depth={props.depth}>
+				<StyledContentTreeTableNodeCell $depth={props.depth}>
 					<StyledContentTreeNodeWedge>
 						{loading ? (
 							<StyledSpinner>-</StyledSpinner>
@@ -92,7 +92,7 @@ const ContentTreeNode = (props: {
 				<td>{props.node.contentType}</td>
 				<td>
 					<StyledContentTreeNodePublishingStatus
-						status={props.node.publishingStatus ?? ''}
+						$status={props.node.publishingStatus ?? ''}
 					>
 						{props.node.publishingStatus}
 					</StyledContentTreeNodePublishingStatus>
