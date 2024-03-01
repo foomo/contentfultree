@@ -4,25 +4,25 @@
   "[typescript]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[javascript]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[typescriptreact]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[json]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "eslint.packageManager": "yarn",
