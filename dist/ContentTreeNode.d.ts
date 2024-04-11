@@ -14,7 +14,7 @@ export interface ContentTreeNodeProps {
 }
 declare const ContentTreeNode: (props: {
     node: ContentTreeNodeProps;
-    depth?: number | undefined;
+    depth?: number;
     addChildNodes: (node: ContentTreeNodeProps) => Promise<void>;
     removeChildNodes: (node: ContentTreeNodeProps) => void;
     editEntry: (nodeId: string) => Promise<void>;
