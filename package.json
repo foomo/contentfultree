@@ -6,8 +6,8 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "rm -f ./tsconfig.tsbuildinfo && rm -rvf dist",
-		"build": "yarn clean && tsc -b -v .",
-		"dev": "yarn tsc -b tsconfig.json -w",
+		"build": "pnpm clean && tsc -b -v .",
+		"dev": "pnpm tsc -b tsconfig.json -w",
 		"lint": "eslint --ext=js,jsx,ts,tsx,json .",
 		"lint:fix": "eslint --ext=js,jsx,ts,tsx,json . --fix"
 	},
@@ -19,20 +19,20 @@
 	"devDependencies": {
 		"@types/react": "18.3.3",
 		"@types/styled-components": "5.1.34",
-		"@typescript-eslint/eslint-plugin": "7.11.0",
-		"@typescript-eslint/parser": "7.11.0",
-		"eslint": "9.3.0",
+		"@typescript-eslint/eslint-plugin": "7.16.0",
+		"@typescript-eslint/parser": "7.16.0",
+		"eslint": "9.6.0",
+		"eslint-config-love": "54.0.0",
 		"eslint-config-prettier": "9.1.0",
-		"eslint-config-standard-with-typescript": "43.0.1",
 		"eslint-plugin-import": "2.29.1",
 		"eslint-plugin-json": "4.0.0",
-		"eslint-plugin-n": "17.7.0",
+		"eslint-plugin-n": "17.9.0",
 		"eslint-plugin-prettier": "5.1.3",
-		"eslint-plugin-promise": "6.2.0",
-		"eslint-plugin-react": "7.34.2",
+		"eslint-plugin-promise": "6.4.0",
+		"eslint-plugin-react": "7.34.3",
 		"install-peers": "1.0.4",
-		"prettier": "3.2.5",
-		"typescript": "5.4.5"
+		"prettier": "3.3.2",
+		"typescript": "5.5.3"
 	},
 	"peerDependencies": {
 		"install-peers": "1.0.4"
@@ -42,10 +42,7 @@
 		"styled-components": "6.1.11"
 	},
 	"dependencies": {
-		"contentful-management": "11.26.2",
-		"contentful-ui-extensions-sdk": "4.25.0"
-	},
-	"resolutions": {
-		"@types/react": "18.2.48"
+		"contentful-management": "11.28.0",
+		"contentful-ui-extensions-sdk": "4.28.0"
 	}
 }
