@@ -19,30 +19,30 @@
 	"devDependencies": {
 		"@types/react": "18.3.3",
 		"@types/styled-components": "5.1.34",
-		"@typescript-eslint/eslint-plugin": "7.16.0",
-		"@typescript-eslint/parser": "7.16.0",
-		"eslint": "9.6.0",
-		"eslint-config-love": "54.0.0",
+		"@typescript-eslint/eslint-plugin": "8.0.1",
+		"@typescript-eslint/parser": "8.0.1",
+		"eslint": "9.8.0",
+		"eslint-config-love": "62.0.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-import": "2.29.1",
-		"eslint-plugin-json": "4.0.0",
-		"eslint-plugin-n": "17.9.0",
-		"eslint-plugin-prettier": "5.1.3",
-		"eslint-plugin-promise": "6.4.0",
-		"eslint-plugin-react": "7.34.3",
+		"eslint-plugin-json": "4.0.1",
+		"eslint-plugin-n": "17.10.2",
+		"eslint-plugin-prettier": "5.2.1",
+		"eslint-plugin-promise": "7.1.0",
+		"eslint-plugin-react": "7.35.0",
 		"install-peers": "1.0.4",
-		"prettier": "3.3.2",
-		"typescript": "5.5.3"
+		"prettier": "3.3.3",
+		"typescript": "5.5.4"
 	},
 	"peerDependencies": {
 		"install-peers": "1.0.4"
 	},
 	"optionalDependencies": {
 		"react": "18.3.1",
-		"styled-components": "6.1.11"
+		"styled-components": "6.1.12"
 	},
 	"dependencies": {
-		"contentful-management": "11.28.0",
-		"contentful-ui-extensions-sdk": "4.28.0"
+		"contentful-management": "11.31.1",
+		"contentful-ui-extensions-sdk": "4.29.0"
 	}
 }
