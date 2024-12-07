@@ -1,12 +1,25 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-node_modules
-# misc
-.DS_Store
+.*
+*.gz
 *.pem
-.history
+*.zip
+*.tar
+*.log
+*.out
+/tmp/
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+## Git
+!.gitkeep
+!.gitignore
+
+## GitHub
+!.github/
+
+## Editorconfig
+!.editorconfig
+
+## Husky
+!.husky/
+!.husky.yaml
+
+## Node
+node_modules/
