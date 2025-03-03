@@ -1,9 +1,9 @@
-import { type EntryProps, type KeyValueMap } from 'contentful-management';
-import { type ContentTreeNodeProps } from './ContentTreeNode';
+import type { EntryProps, KeyValueMap } from 'contentful-management'
+import type { ContentTreeNodeProps } from './ContentTreeNode'
 
 export const emptyNodeProps = (): ContentTreeNodeProps => {
-	return { id: '', name: '', expand: false, parentId: '' };
-};
+	return { id: '', name: '', expand: false, parentId: '' }
+}
 
 const cfEntryHasChildren = (
 	entry: EntryProps<KeyValueMap>,
@@ -13,25 +13,25 @@ const cfEntryHasChildren = (
 	for (const nodeContentType of nodeContentTypes) {
 		for (const locale of locales) {
 			if (entry.fields[nodeContentType]?.[locale]) {
-				return true;
+				return true
 			}
 		}
 	}
-	return false;
-};
+	return false
+}
 
 const cfEntryPublishingStatus = (entry: EntryProps<KeyValueMap>): string => {
 	if (!entry.sys.publishedVersion) {
-		return 'draft';
+		return 'draft'
 	}
 	if (entry.sys.version - entry.sys.publishedVersion === 1) {
-		return 'published';
+		return 'published'
 	}
-	return 'changed';
-};
+	return 'changed'
+}
 
 export const cfEntriesToNodes = (
-	entries: Array<EntryProps<KeyValueMap>>,
+	entries: EntryProps<KeyValueMap>[],
 	titleFields: string[],
 	stLocale: string,
 	locales: string[],
@@ -40,22 +40,22 @@ export const cfEntriesToNodes = (
 	parentId?: string,
 ): ContentTreeNodeProps[] => {
 	if (entries.length === 0) {
-		return [];
+		return []
 	}
-	const nodeArray: ContentTreeNodeProps[] = [];
+	const nodeArray: ContentTreeNodeProps[] = []
 	entries.forEach((entry) => {
 		if (!entry) {
-			return;
+			return
 		}
-		let name = '';
+		let name = ''
 		for (const titleField of titleFields) {
 			if (entry.fields[titleField]?.[stLocale]) {
-				name = entry.fields[titleField][stLocale];
-				break;
+				name = entry.fields[titleField][stLocale]
+				break
 			}
 		}
 		if (name === '') {
-			name = entry.sys.id;
+			name = entry.sys.id
 		}
 		const node: ContentTreeNodeProps = {
 			id: entry.sys.id,
@@ -69,8 +69,8 @@ export const cfEntriesToNodes = (
 			publishingStatus: cfEntryPublishingStatus(entry),
 			updatedAt: entry.sys.updatedAt,
 			publishedAt: entry.sys.publishedAt,
-		};
-		nodeArray.push(node);
-	});
-	return nodeArray;
-};
+		}
+		nodeArray.push(node)
+	})
+	return nodeArray
+}

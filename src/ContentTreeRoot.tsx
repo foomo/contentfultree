@@ -1,25 +1,25 @@
-import {
-	type EntryProps,
-	type KeyValueMap,
-	type Link,
-	type PlainClientAPI,
-} from 'contentful-management';
-import { type PageAppSDK } from 'contentful-ui-extensions-sdk';
-import React, { type ReactElement, useEffect, useState } from 'react';
+import type {
+	EntryProps,
+	KeyValueMap,
+	Link,
+	PlainClientAPI,
+} from 'contentful-management'
+import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
+import React, { type ReactElement, useEffect, useState } from 'react'
 
-import { StyledContentTreeTable } from './ContentTree.styled';
-import ContentTreeNode, { type ContentTreeNodeProps } from './ContentTreeNode';
-import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils';
+import { StyledContentTreeTable } from './ContentTree.styled'
+import ContentTreeNode, { type ContentTreeNodeProps } from './ContentTreeNode'
+import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
 
 export interface ContentTreeRootProps {
-	node: ContentTreeNodeProps;
-	sdkInstance: PageAppSDK;
-	cma: PlainClientAPI;
-	nodeContentTypes: string[];
-	titleFields: string[];
-	locales: string[]; // the first is the default locale
-	depth: number;
-	iconRegistry?: Record<string, string>;
+	node: ContentTreeNodeProps
+	sdkInstance: PageAppSDK
+	cma: PlainClientAPI
+	nodeContentTypes: string[]
+	titleFields: string[]
+	locales: string[] // the first is the default locale
+	depth: number
+	iconRegistry?: Record<string, string>
 }
 
 export const ContentTreeRoot = ({
@@ -32,21 +32,21 @@ export const ContentTreeRoot = ({
 	depth,
 	iconRegistry,
 }: ContentTreeRootProps): ReactElement => {
-	const [stLocale] = useState(locales[0]);
-	const [stRoot, setStRoot] = useState(emptyNodeProps());
+	const [stLocale] = useState(locales[0])
+	const [stRoot, setStRoot] = useState(emptyNodeProps())
 
 	useEffect(() => {
 		if (node.id) {
 			loadRootData(node).catch((err: ErrorOptions) => {
-				throw new Error('loadRootData', err);
-			});
+				throw new Error('loadRootData', err)
+			})
 		}
-	}, [node]);
+	}, [node])
 
 	const loadRootData = async (
 		rootNode: ContentTreeNodeProps,
 	): Promise<void> => {
-		const childEntries = await getContentfulChildEntries(rootNode.id);
+		const childEntries = await getContentfulChildEntries(rootNode.id)
 		const childNodes = cfEntriesToNodes(
 			childEntries,
 			titleFields,
@@ -55,34 +55,34 @@ export const ContentTreeRoot = ({
 			nodeContentTypes,
 			iconRegistry,
 			rootNode.id,
-		);
-		const nodes = [rootNode, ...childNodes];
+		)
+		const nodes = [rootNode, ...childNodes]
 		if (nodes.length > 0) {
 			const newIdPositionMap = nodes.reduce((acc: any, el, i) => {
-				acc[el.id] = i;
-				return acc;
-			}, {});
-			let tree: ContentTreeNodeProps = emptyNodeProps();
+				acc[el.id] = i
+				return acc
+			}, {})
+			let tree: ContentTreeNodeProps = emptyNodeProps()
 			nodes.forEach((node: ContentTreeNodeProps) => {
-				node.childNodes = [];
+				node.childNodes = []
 				if (!node.parentId) {
-					tree = node;
-					return;
+					tree = node
+					return
 				}
-				const parentEl = nodes[newIdPositionMap[node.parentId]];
+				const parentEl = nodes[newIdPositionMap[node.parentId]]
 				if (parentEl) {
-					parentEl.childNodes = [...(parentEl.childNodes ?? []), node];
-					parentEl.expand = false;
+					parentEl.childNodes = [...(parentEl.childNodes ?? []), node]
+					parentEl.expand = false
 				}
-			});
-			console.log('🌴 tree', tree);
-			setStRoot(tree);
+			})
+			console.log('🌴 tree', tree)
+			setStRoot(tree)
 		}
-	};
+	}
 
 	const addChildNodes = async (node: ContentTreeNodeProps): Promise<void> => {
-		let childNodes: ContentTreeNodeProps[] = [];
-		const cfChildren = await getContentfulChildEntries(node.id);
+		let childNodes: ContentTreeNodeProps[] = []
+		const cfChildren = await getContentfulChildEntries(node.id)
 		childNodes = cfEntriesToNodes(
 			cfChildren,
 			titleFields,
@@ -91,21 +91,21 @@ export const ContentTreeRoot = ({
 			nodeContentTypes,
 			iconRegistry,
 			node.id,
-		);
+		)
 
 		setStRoot((prevState) => {
-			const newState = { ...prevState };
+			const newState = { ...prevState }
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
-					targetNode.childNodes = childNodes;
-					targetNode.expand = false;
+					targetNode.childNodes = childNodes
+					targetNode.expand = false
 				},
 				newState,
-			);
-			return newState;
-		});
-	};
+			)
+			return newState
+		})
+	}
 
 	const recursiveProcessNodes = (
 		targetNodeId: string,
@@ -113,85 +113,85 @@ export const ContentTreeRoot = ({
 		node: ContentTreeNodeProps,
 	): void => {
 		if (node.id === targetNodeId) {
-			processNode(node);
+			processNode(node)
 		}
 		if (node.childNodes != null) {
 			for (const targetNode of node.childNodes) {
-				recursiveProcessNodes(targetNodeId, processNode, targetNode);
+				recursiveProcessNodes(targetNodeId, processNode, targetNode)
 			}
 		}
-	};
+	}
 
 	const editEntry = async (entryId: string): Promise<void> => {
-		await sdkInstance.navigator.openEntry(entryId, { slideIn: true });
-	};
+		await sdkInstance.navigator.openEntry(entryId, { slideIn: true })
+	}
 
 	const getContentfulChildEntries = async (
 		parentId: string,
-	): Promise<Array<EntryProps<KeyValueMap>>> => {
-		const parentItem = await cma.entry.get({ entryId: parentId });
-		const allChildIds: string[] = [];
+	): Promise<EntryProps<KeyValueMap>[]> => {
+		const parentItem = await cma.entry.get({ entryId: parentId })
+		const allChildIds: string[] = []
 		for (const key of Object.keys(parentItem.fields)) {
 			if (nodeContentTypes.includes(key)) {
 				const childNodeRefs = parentItem.fields[key][stLocale] as
 					| Link<string>
-					| Array<Link<string>>;
+					| Link<string>[]
 				if (Array.isArray(childNodeRefs)) {
 					for (const childNodeRef of childNodeRefs) {
-						allChildIds.push(childNodeRef.sys.id);
+						allChildIds.push(childNodeRef.sys.id)
 					}
 				} else {
-					allChildIds.push(childNodeRefs.sys.id);
+					allChildIds.push(childNodeRefs.sys.id)
 				}
 			}
 		}
-		const allItems: Array<EntryProps<KeyValueMap>> = [];
-		let done = false;
-		let skip = 0;
+		const allItems: EntryProps<KeyValueMap>[] = []
+		let done = false
+		let skip = 0
 		while (!done) {
 			const col = await cma.entry.getMany({
 				query: {
 					'sys.id[in]': allChildIds.join(','),
 					skip,
 				},
-			});
-			allItems.push(...col.items);
+			})
+			allItems.push(...col.items)
 			if (allItems.length < col.total) {
-				skip += 100;
+				skip += 100
 			} else {
-				done = true;
+				done = true
 			}
 		}
-		const cfChildren: Array<EntryProps<KeyValueMap>> = [];
+		const cfChildren: EntryProps<KeyValueMap>[] = []
 		const idPositionMap: Record<string, number> = allItems.reduce(
 			(acc: any, el, i) => {
-				acc[el.sys.id] = i;
-				return acc;
+				acc[el.sys.id] = i
+				return acc
 			},
 			{},
-		);
+		)
 		for (const childId of allChildIds) {
 			if (allItems[idPositionMap[childId]]) {
-				cfChildren.push(allItems[idPositionMap[childId]]);
+				cfChildren.push(allItems[idPositionMap[childId]])
 			}
 		}
-		return cfChildren;
-	};
+		return cfChildren
+	}
 
 	const removeChildNodes = (node: ContentTreeNodeProps): void => {
 		setStRoot((prevState) => {
-			const newState = { ...prevState };
+			const newState = { ...prevState }
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
-					targetNode.childNodes = [];
-					targetNode.expand = true;
+					targetNode.childNodes = []
+					targetNode.expand = true
 				},
 				newState,
-			);
-			return newState;
-		});
-	};
+			)
+			return newState
+		})
+	}
 
 	return (
 		<>
@@ -214,5 +214,5 @@ export const ContentTreeRoot = ({
 				</tbody>
 			</StyledContentTreeTable>
 		</>
-	);
-};
+	)
+}

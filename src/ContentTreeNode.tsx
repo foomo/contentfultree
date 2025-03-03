@@ -1,4 +1,4 @@
-import React, { type ReactElement, useState } from 'react';
+import React, { type ReactElement, useState } from 'react'
 
 import {
 	StyledContentTreeNodeName,
@@ -6,49 +6,49 @@ import {
 	StyledContentTreeNodeWedge,
 	StyledContentTreeTableNodeCell,
 	StyledSpinner,
-} from './ContentTree.styled';
-import { Icon } from './Icons';
+} from './ContentTree.styled'
+import { Icon } from './Icons'
 
 export interface ContentTreeNodeProps {
-	id: string;
-	name: string;
-	contentType?: string;
-	icon?: string;
-	expand: boolean;
-	parentId?: string;
-	childNodes?: ContentTreeNodeProps[];
-	hasChildNodes?: boolean;
-	publishingStatus?: string;
-	updatedAt?: string;
-	publishedAt?: string;
+	id: string
+	name: string
+	contentType?: string
+	icon?: string
+	expand: boolean
+	parentId?: string
+	childNodes?: ContentTreeNodeProps[]
+	hasChildNodes?: boolean
+	publishingStatus?: string
+	updatedAt?: string
+	publishedAt?: string
 }
 
 const ContentTreeNode = (props: {
-	node: ContentTreeNodeProps;
-	depth?: number;
-	addChildNodes: (node: ContentTreeNodeProps) => Promise<void>;
-	removeChildNodes: (node: ContentTreeNodeProps) => void;
-	editEntry: (nodeId: string) => Promise<void>;
+	node: ContentTreeNodeProps
+	depth?: number
+	addChildNodes: (node: ContentTreeNodeProps) => Promise<void>
+	removeChildNodes: (node: ContentTreeNodeProps) => void
+	editEntry: (nodeId: string) => Promise<void>
 }): ReactElement => {
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(false)
 
 	const addChildren = async (node: ContentTreeNodeProps): Promise<void> => {
-		setLoading(true);
-		await props.addChildNodes(node);
-		setLoading(false);
-	};
+		setLoading(true)
+		await props.addChildNodes(node)
+		setLoading(false)
+	}
 
 	const handleEditEntry = (): void => {
 		props.editEntry(props.node.id).catch((err: ErrorOptions) => {
-			throw new Error('handleEditEntry', err);
-		});
-	};
+			throw new Error('handleEditEntry', err)
+		})
+	}
 
 	const handleAddChildren = (node: ContentTreeNodeProps): void => {
 		addChildren(node).catch((err: ErrorOptions) => {
-			throw new Error('handleAddChildren', err);
-		});
-	};
+			throw new Error('handleAddChildren', err)
+		})
+	}
 
 	return (
 		<>
@@ -61,7 +61,7 @@ const ContentTreeNode = (props: {
 							props.node.expand ? (
 								<a
 									onClick={() => {
-										handleAddChildren(props.node);
+										handleAddChildren(props.node)
 									}}
 								>
 									+
@@ -69,7 +69,7 @@ const ContentTreeNode = (props: {
 							) : (
 								<a
 									onClick={() => {
-										props.removeChildNodes(props.node);
+										props.removeChildNodes(props.node)
 									}}
 								>
 									-
@@ -81,7 +81,7 @@ const ContentTreeNode = (props: {
 					<StyledContentTreeNodeName>
 						<a
 							onClick={() => {
-								handleEditEntry();
+								handleEditEntry()
 							}}
 							title={props.node.id}
 						>
@@ -110,10 +110,10 @@ const ContentTreeNode = (props: {
 						removeChildNodes={props.removeChildNodes}
 						editEntry={props.editEntry}
 					/>
-				);
+				)
 			})}
 		</>
-	);
-};
+	)
+}
 
-export default ContentTreeNode;
+export default ContentTreeNode

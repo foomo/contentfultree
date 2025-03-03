@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.1.28",
+	"version": "0.2.0",
 	"main": "dist/index.js",
 	"author": "foomo",
 	"license": "MIT",
@@ -8,41 +8,24 @@
 		"clean": "rm -f ./tsconfig.tsbuildinfo && rm -rvf dist",
 		"build": "pnpm clean && tsc -b -v .",
 		"dev": "pnpm tsc -b tsconfig.json -w",
-		"lint": "eslint --ext=js,jsx,ts,tsx,json .",
-		"lint:fix": "eslint --ext=js,jsx,ts,tsx,json . --fix"
-	},
-	"prettier": {
-		"useTabs": true,
-		"tabWidth": 2,
-		"singleQuote": true
+		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@types/react": "19.0.7",
+		"@biomejs/biome": "1.9.4",
+		"@types/react": "19.0.10",
 		"@types/styled-components": "5.1.34",
-		"@typescript-eslint/eslint-plugin": "8.20.0",
-		"@typescript-eslint/parser": "8.20.0",
-		"eslint": "9.18.0",
-		"eslint-config-love": "117.0.0",
-		"eslint-config-prettier": "10.0.1",
-		"eslint-plugin-import": "2.31.0",
-		"eslint-plugin-json": "4.0.1",
-		"eslint-plugin-n": "17.15.1",
-		"eslint-plugin-prettier": "5.2.2",
-		"eslint-plugin-promise": "7.2.1",
-		"eslint-plugin-react": "7.37.4",
 		"install-peers": "1.0.4",
-		"prettier": "3.4.2",
-		"typescript": "5.7.3"
+		"typescript": "5.8.2"
 	},
 	"peerDependencies": {
 		"install-peers": "1.0.4"
 	},
 	"optionalDependencies": {
 		"react": "19.0.0",
-		"styled-components": "6.1.14"
+		"styled-components": "6.1.15"
 	},
 	"dependencies": {
-		"contentful-management": "11.42.0",
-		"contentful-ui-extensions-sdk": "4.29.3"
+		"contentful-management": "11.47.3",
+		"contentful-ui-extensions-sdk": "4.29.5"
 	}
 }

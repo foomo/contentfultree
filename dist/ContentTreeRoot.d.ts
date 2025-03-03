@@ -1,5 +1,5 @@
-import { type PlainClientAPI } from 'contentful-management';
-import { type PageAppSDK } from 'contentful-ui-extensions-sdk';
+import type { PlainClientAPI } from 'contentful-management';
+import type { PageAppSDK } from 'contentful-ui-extensions-sdk';
 import { type ReactElement } from 'react';
 import { type ContentTreeNodeProps } from './ContentTreeNode';
 export interface ContentTreeRootProps {

@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export interface UiPalette {
-	publishingStatusBg?: string;
-	publishingStatusFg?: string;
+	publishingStatusBg?: string
+	publishingStatusFg?: string
 }
 
 export const StyledContentTreeTable = styled.table`
@@ -28,14 +28,14 @@ export const StyledContentTreeTable = styled.table`
 		font-weight: bold !important;
 		color: black !important;
 	}
-`;
+`
 
 export const StyledContentTreeTableNodeCell = styled.td<{ $depth?: number }>`
 	padding-left: ${(props) => props.$depth}em !important;
 	padding-right: 2em !important;
 	color: black !important;
 	min-width: 450px !important;
-`;
+`
 
 export const StyledContentTreeNodeWedge = styled.div`
 	display: inline-block;
@@ -46,7 +46,7 @@ export const StyledContentTreeNodeWedge = styled.div`
 		font-size: 130%;
 		line-height: 100%;
 	}
-`;
+`
 
 export const StyledContentTreeNodeName = styled.div`
 	display: inline-block;
@@ -56,7 +56,7 @@ export const StyledContentTreeNodeName = styled.div`
 	a:hover {
 		text-decoration: underline;
 	}
-`;
+`
 
 const getPublishingStatusColors = (status: string): UiPalette | undefined => {
 	switch (status) {
@@ -64,22 +64,22 @@ const getPublishingStatusColors = (status: string): UiPalette | undefined => {
 			return {
 				publishingStatusBg: 'rgb(253, 229, 192)',
 				publishingStatusFg: 'rgb(177, 45, 0)',
-			};
+			}
 		case 'changed':
 			return {
 				publishingStatusBg: 'rgb(206, 236, 255)',
 				publishingStatusFg: 'rgb(0, 89, 200)',
-			};
+			}
 		case 'published':
 			return {
 				publishingStatusBg: 'rgb(205, 243, 198)',
 				publishingStatusFg: 'rgb(0, 109, 35)',
-			};
+			}
 	}
-};
+}
 
 export const StyledContentTreeNodePublishingStatus = styled.div<{
-	$status: string;
+	$status: string
 }>`
 	display: inline-block;
 	font-family:
@@ -102,7 +102,7 @@ export const StyledContentTreeNodePublishingStatus = styled.div<{
 		getPublishingStatusColors(props.$status)?.publishingStatusFg} !important;
 	background-color: ${(props) =>
 		getPublishingStatusColors(props.$status)?.publishingStatusBg} !important;
-`;
+`
 
 export const StyledSpinner = styled.div`
 	display: inline-block;
@@ -116,4 +116,4 @@ export const StyledSpinner = styled.div`
 			transform: rotate(360deg);
 		}
 	}
-`;
+`

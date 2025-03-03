@@ -1,18 +1,18 @@
-import { type PlainClientAPI } from 'contentful-management';
-import { type PageAppSDK } from 'contentful-ui-extensions-sdk';
-import React, { type ReactElement, useEffect, useState } from 'react';
-import { ContentTreeRoot } from './ContentTreeRoot';
-import { emptyNodeProps, cfEntriesToNodes } from './ContentTreeUtils';
+import type { PlainClientAPI } from 'contentful-management'
+import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
+import React, { type ReactElement, useEffect, useState } from 'react'
+import { ContentTreeRoot } from './ContentTreeRoot'
+import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
 
 export interface ContentTreeProps {
-	sdkInstance: PageAppSDK;
-	cma: PlainClientAPI;
-	rootType: string;
-	nodeContentTypes: string[];
-	titleFields: string[];
-	locales: string[]; // the first is the default locale
-	indentation?: number;
-	iconRegistry?: Record<string, string>;
+	sdkInstance: PageAppSDK
+	cma: PlainClientAPI
+	rootType: string
+	nodeContentTypes: string[]
+	titleFields: string[]
+	locales: string[] // the first is the default locale
+	indentation?: number
+	iconRegistry?: Record<string, string>
 }
 
 export const ContentTree = ({
@@ -25,21 +25,21 @@ export const ContentTree = ({
 	indentation = 1,
 	iconRegistry,
 }: ContentTreeProps): ReactElement => {
-	const [stLocale] = useState(locales[0]);
-	const [rootNodes, setRootNodes] = useState([emptyNodeProps()]);
+	const [stLocale] = useState(locales[0])
+	const [rootNodes, setRootNodes] = useState([emptyNodeProps()])
 
 	useEffect(() => {
 		if (sdkInstance) {
 			loadData().catch((err: ErrorOptions) => {
-				throw new Error('loadRootData', err);
-			});
+				throw new Error('loadRootData', err)
+			})
 		}
-	}, [sdkInstance]);
+	}, [sdkInstance])
 
 	const loadData = async (): Promise<void> => {
 		const CfRootData = await cma.entry.getMany({
 			query: { content_type: rootType },
-		});
+		})
 		const nodes = cfEntriesToNodes(
 			CfRootData.items,
 			titleFields,
@@ -47,9 +47,9 @@ export const ContentTree = ({
 			locales,
 			nodeContentTypes,
 			iconRegistry,
-		);
-		setRootNodes(nodes);
-	};
+		)
+		setRootNodes(nodes)
+	}
 
 	return (
 		<>
@@ -67,5 +67,5 @@ export const ContentTree = ({
 				/>
 			))}
 		</>
-	);
-};
+	)
+}
