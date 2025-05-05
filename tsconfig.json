@@ -4,7 +4,11 @@
 		"forceConsistentCasingInFileNames": true,
 		"removeComments": true,
 		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"noEmit": false,
@@ -16,8 +20,15 @@
 		"jsx": "react",
 		"rootDir": "src",
 		"outDir": "dist",
-		"declaration": true
+		"declaration": true,
+		"incremental": true,
+		"tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+		"composite": true,
 	},
-	"exclude": ["node_modules"],
-	"include": ["src"]
+	"exclude": [
+		"node_modules"
+	],
+	"include": [
+		"src"
+	]
 }

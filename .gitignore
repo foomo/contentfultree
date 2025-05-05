@@ -23,3 +23,6 @@
 
 ## Node
 node_modules/
+
+## TS config build info
+tsconfig.tsbuildinfo
