@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"main": "dist/index.js",
 	"author": "foomo",
 	"license": "MIT",
@@ -23,7 +23,7 @@
 	},
 	"optionalDependencies": {
 		"react": "19.1.0",
-		"styled-components": "6.1.17"
+		"styled-components": "6.1.18"
 	},
 	"dependencies": {
 		"contentful-management": "11.52.2",

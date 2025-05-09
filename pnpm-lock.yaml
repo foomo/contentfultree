@@ -19,8 +19,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0
       styled-components:
-        specifier: 6.1.17
-        version: 6.1.17(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 6.1.18
+        version: 6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -340,8 +340,8 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
-  styled-components@6.1.17:
-    resolution: {integrity: sha512-97D7DwWanI7nN24v0D4SvbfjLE9656umNSJZkBkDIWL37aZqG/wRQ+Y9pWtXyBIM/NSfcBzHLErEsqHmJNSVUg==}
+  styled-components@6.1.18:
+    resolution: {integrity: sha512-Mvf3gJFzZCkhjY2Y/Fx9z1m3dxbza0uI9H1CbNZm/jSHCojzJhQ0R7bByrlFJINnMzz/gPulpoFFGymNwrsMcw==}
     engines: {node: '>= 16'}
     peerDependencies:
       react: '>= 16.8.0'
@@ -666,7 +666,7 @@ snapshots:
   source-map-js@1.2.1:
     optional: true
 
-  styled-components@6.1.17(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@emotion/is-prop-valid': 1.2.2
       '@emotion/unitless': 0.8.1
