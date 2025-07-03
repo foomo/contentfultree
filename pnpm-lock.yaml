@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       contentful-management:
-        specifier: 11.53.0
-        version: 11.53.0
+        specifier: 11.54.1
+        version: 11.54.1
       contentful-ui-extensions-sdk:
         specifier: 4.29.7
         version: 4.29.7
@@ -106,8 +106,8 @@ packages:
   '@emotion/unitless@0.8.1':
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
 
-  '@rollup/rollup-linux-x64-gnu@4.44.0':
-    resolution: {integrity: sha512-iUVJc3c0o8l9Sa/qlDL2Z9UP92UZZW1+EmQ4xfjTc1akr0iUFZNfxrXJ/R1T90h/ILm9iXEY6+iPrmYB3pXKjw==}
+  '@rollup/rollup-linux-x64-gnu@4.44.1':
+    resolution: {integrity: sha512-EtnsrmZGomz9WxK1bR5079zee3+7a+AdFlghyd6VbAjgRJDbTANJ9dcPIPAi76uG05micpEL+gPGmAKYTschQw==}
     cpu: [x64]
     os: [linux]
 
@@ -144,8 +144,8 @@ packages:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
 
-  contentful-management@11.53.0:
-    resolution: {integrity: sha512-SVdLTpZe4iL18bcrDzHpbI/CMtuaRP6qyt0gZqc2Knc3rTIcLyffhzGGLIcUW0utbGdwH+1clWvVaN7PnKkdqA==}
+  contentful-management@11.54.1:
+    resolution: {integrity: sha512-wNBYd4uMbF/nyZuAb98Krpm8SmZJd2N4ekmYq4vPpzaK22oyveE6eaGN0GVCmpFGjTGmJjtLRVIe9VJxdiuwuQ==}
     engines: {node: '>=18'}
 
   contentful-sdk-core@9.2.0:
@@ -408,7 +408,7 @@ snapshots:
   '@emotion/unitless@0.8.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.44.0':
+  '@rollup/rollup-linux-x64-gnu@4.44.1':
     optional: true
 
   '@types/hoist-non-react-statics@3.3.5':
@@ -456,7 +456,7 @@ snapshots:
     dependencies:
       delayed-stream: 1.0.0
 
-  contentful-management@11.53.0:
+  contentful-management@11.54.1:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
       axios: 1.10.0
@@ -474,11 +474,11 @@ snapshots:
       process: 0.11.10
       qs: 6.14.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.44.0
+      '@rollup/rollup-linux-x64-gnu': 4.44.1
 
   contentful-ui-extensions-sdk@4.29.7:
     dependencies:
-      contentful-management: 11.53.0
+      contentful-management: 11.54.1
     transitivePeerDependencies:
       - debug
 
