@@ -22,11 +22,11 @@
 		"install-peers": "1.0.4"
 	},
 	"optionalDependencies": {
-		"react": "19.1.0",
+		"react": "19.1.1",
 		"styled-components": "6.1.19"
 	},
 	"dependencies": {
-		"contentful-management": "11.54.3",
-		"contentful-ui-extensions-sdk": "4.34.0"
+		"contentful-management": "11.54.4",
+		"contentful-ui-extensions-sdk": "4.36.0"
 	}
 }
