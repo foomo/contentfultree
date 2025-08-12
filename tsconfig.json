@@ -4,11 +4,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"removeComments": true,
 		"target": "es5",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
+		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"noEmit": false,
@@ -23,12 +19,8 @@
 		"declaration": true,
 		"incremental": true,
 		"tsBuildInfoFile": "./tsconfig.tsbuildinfo",
-		"composite": true,
+		"composite": true
 	},
-	"exclude": [
-		"node_modules"
-	],
-	"include": [
-		"src"
-	]
+	"exclude": ["node_modules"],
+	"include": ["src"]
 }
