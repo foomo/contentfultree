@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       contentful-management:
-        specifier: 11.57.4
-        version: 11.57.4
+        specifier: 11.58.0
+        version: 11.58.0
       contentful-ui-extensions-sdk:
-        specifier: 4.44.0
-        version: 4.44.0
+        specifier: 4.44.1
+        version: 4.44.1
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.4
@@ -106,8 +106,8 @@ packages:
   '@emotion/unitless@0.8.1':
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
 
-  '@rollup/rollup-linux-x64-gnu@4.50.2':
-    resolution: {integrity: sha512-9Jie/At6qk70dNIcopcL4p+1UirusEtznpNtcq/u/C5cC4HBX7qSGsYIcG6bdxj15EYWhHiu02YvmdPzylIZlA==}
+  '@rollup/rollup-linux-x64-gnu@4.51.0':
+    resolution: {integrity: sha512-4YHhP+Rv3T3+H3TPbUvWOw5tuSwhrVhkHHZhk4hC9VXeAOKR26/IsUAT4FsB4mT+kfIdxxb1BezQDEg/voPO8A==}
     cpu: [x64]
     os: [linux]
 
@@ -144,16 +144,16 @@ packages:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
 
-  contentful-management@11.57.4:
-    resolution: {integrity: sha512-jkM3dhFSGE2+pbL1ylsINvSblpdVCSCIaHzTlKzAKW2x+4lM/lzoT8d0dTW11mgppGl+FtPlwnANU9cbcjkNog==}
+  contentful-management@11.58.0:
+    resolution: {integrity: sha512-17rqukaUE/dhbbNLNlt/SvJv74M7D2lRN6d+63EShIGAkdKaCROomfUV3aFB+chPKcqNuEgnxz7Lj78bBMCVBw==}
     engines: {node: '>=18'}
 
   contentful-sdk-core@9.2.0:
     resolution: {integrity: sha512-cUvHbC2u8ouJHhG3tofQhUc0FAmM/QBcalYjiczMtFKrR77BW+eSPcPg+A9DQlhIP0UGcQ/knXxoJpBvrERXTA==}
     engines: {node: '>=18'}
 
-  contentful-ui-extensions-sdk@4.44.0:
-    resolution: {integrity: sha512-CjP7o+JSdKFiYw/a0zNxBSd7U8hYKFSWMQlCsQFKbdf94qxaXMBICowgz4jg9BKFWL1maX6EIN0BSW57Hjnv/g==}
+  contentful-ui-extensions-sdk@4.44.1:
+    resolution: {integrity: sha512-6NP8zLVsZx+Nl37PKWOu85WGGAYsiTwS2KhAKLgGuRWqrXC4QAbAJ+s3AXeQAvJu/pjE2gFb+TlBw6MBBHKD2A==}
 
   css-color-keywords@1.0.0:
     resolution: {integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==}
@@ -408,7 +408,7 @@ snapshots:
   '@emotion/unitless@0.8.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.50.2':
+  '@rollup/rollup-linux-x64-gnu@4.51.0':
     optional: true
 
   '@types/hoist-non-react-statics@3.3.5':
@@ -456,7 +456,7 @@ snapshots:
     dependencies:
       delayed-stream: 1.0.0
 
-  contentful-management@11.57.4:
+  contentful-management@11.58.0:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
       axios: 1.12.2
@@ -474,11 +474,11 @@ snapshots:
       process: 0.11.10
       qs: 6.14.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.50.2
+      '@rollup/rollup-linux-x64-gnu': 4.51.0
 
-  contentful-ui-extensions-sdk@4.44.0:
+  contentful-ui-extensions-sdk@4.44.1:
     dependencies:
-      contentful-management: 11.57.4
+      contentful-management: 11.58.0
     transitivePeerDependencies:
       - debug
 

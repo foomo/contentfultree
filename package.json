@@ -23,7 +23,7 @@
 		"styled-components": "6.1.19"
 	},
 	"dependencies": {
-		"contentful-management": "11.57.4",
-		"contentful-ui-extensions-sdk": "4.44.0"
+		"contentful-management": "11.58.0",
+		"contentful-ui-extensions-sdk": "4.44.1"
 	}
 }
