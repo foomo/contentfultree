@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.2.7",
+	"version": "0.2.8",
 	"main": "dist/index.js",
 	"author": "foomo",
 	"license": "MIT",
@@ -12,17 +12,17 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.11",
-		"@types/react": "19.2.8",
+		"@biomejs/biome": "2.3.14",
+		"@types/react": "19.2.11",
 		"install-peers": "1.0.4",
 		"typescript": "5.9.3"
 	},
 	"optionalDependencies": {
-		"react": "19.2.3",
-		"styled-components": "6.3.5"
+		"react": "19.2.4",
+		"styled-components": "6.3.8"
 	},
 	"dependencies": {
-		"contentful-management": "11.67.0",
-		"contentful-ui-extensions-sdk": "4.51.0"
+		"contentful-management": "11.68.1",
+		"contentful-ui-extensions-sdk": "4.51.4"
 	}
 }
