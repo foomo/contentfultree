@@ -12,17 +12,17 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.14",
-		"@types/react": "19.2.11",
+		"@biomejs/biome": "2.4.4",
+		"@types/react": "19.2.14",
 		"install-peers": "1.0.4",
 		"typescript": "5.9.3"
 	},
 	"optionalDependencies": {
 		"react": "19.2.4",
-		"styled-components": "6.3.8"
+		"styled-components": "6.3.11"
 	},
 	"dependencies": {
-		"contentful-management": "11.68.1",
+		"contentful-management": "11.72.0",
 		"contentful-ui-extensions-sdk": "4.51.4"
 	}
 }
