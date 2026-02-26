@@ -1,4 +1,3 @@
 onlyBuiltDependencies:
   - "@biomejs/biome"
-  - install-peers
 minimumReleaseAge: 1440

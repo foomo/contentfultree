@@ -14,7 +14,6 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.4",
 		"@types/react": "19.2.14",
-		"install-peers": "1.0.4",
 		"typescript": "5.9.3"
 	},
 	"optionalDependencies": {
