@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       contentful-management:
-        specifier: 11.72.0
-        version: 11.72.0
+        specifier: 11.72.1
+        version: 11.72.1
       contentful-ui-extensions-sdk:
         specifier: 4.51.4
         version: 4.51.4
@@ -140,12 +140,12 @@ packages:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
 
-  contentful-management@11.72.0:
-    resolution: {integrity: sha512-Yl1lI+14yJwEj1qP7/4Notw/RrJbTRA1Fozs5YpNPOSacZCTfVcvG1WW1eXKaDbB+QopdIxWQUuNkuwvqrDv7Q==}
+  contentful-management@11.72.1:
+    resolution: {integrity: sha512-tAuzk506k3pwerhy24TWIYfshouDvi60H5y18r44Fo9UWmYEcq/IfbQue7WxO9RY4L5to5hkLUE4dJtE4mBCZw==}
     engines: {node: '>=18'}
 
-  contentful-sdk-core@9.4.3:
-    resolution: {integrity: sha512-wUCrPSxOPZrmwYTPWAAe6fTQkxjElG0C3ClwhhKtguWJGzliHRXHLux9n8Hy+/jCIZJIIXWEwclSdg7bT2107A==}
+  contentful-sdk-core@9.4.4:
+    resolution: {integrity: sha512-61MfMyMU23dqCEOTHaHGys16tK2D0tbDe67GPcl6JkfbCcnhtmgTMLUbBnimW5wQse1mNmwS7lK2BNsz+rlFjA==}
     engines: {node: '>=18'}
 
   contentful-ui-extensions-sdk@4.51.4:
@@ -434,17 +434,17 @@ snapshots:
     dependencies:
       delayed-stream: 1.0.0
 
-  contentful-management@11.72.0:
+  contentful-management@11.72.1:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
       axios: 1.13.5
-      contentful-sdk-core: 9.4.3
+      contentful-sdk-core: 9.4.4
       fast-copy: 3.0.2
       globals: 15.15.0
     transitivePeerDependencies:
       - debug
 
-  contentful-sdk-core@9.4.3:
+  contentful-sdk-core@9.4.4:
     dependencies:
       fast-copy: 3.0.2
       lodash: 4.17.23
@@ -455,7 +455,7 @@ snapshots:
 
   contentful-ui-extensions-sdk@4.51.4:
     dependencies:
-      contentful-management: 11.72.0
+      contentful-management: 11.72.1
     transitivePeerDependencies:
       - debug
 
