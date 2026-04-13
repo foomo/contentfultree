@@ -20,14 +20,15 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.9",
+		"@biomejs/biome": "2.4.11",
+		"@contentful/app-sdk": "4.53.1",
 		"@types/react": "19.2.14",
 		"typescript": "6.0.2"
 	},
 	"peerDependencies": {
-		"react": ">=18",
-		"styled-components": ">=6",
+		"@contentful/app-sdk": ">=4",
 		"contentful-management": ">=12",
-		"contentful-ui-extensions-sdk": ">=4"
+		"react": ">=18",
+		"styled-components": ">=6"
 	}
 }

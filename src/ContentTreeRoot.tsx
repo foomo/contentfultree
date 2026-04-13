@@ -1,10 +1,10 @@
+import type { PageAppSDK } from '@contentful/app-sdk'
 import type {
 	EntryProps,
 	KeyValueMap,
 	Link,
 	PlainClientAPI,
 } from 'contentful-management'
-import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
 import { type ReactElement, useEffect, useState } from 'react'
 
 import { StyledContentTreeTable } from './ContentTree.styled'

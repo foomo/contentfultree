@@ -1,5 +1,5 @@
+import type { PageAppSDK } from '@contentful/app-sdk'
 import type { PlainClientAPI } from 'contentful-management'
-import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
 import { type ReactElement, useEffect, useState } from 'react'
 import { ContentTreeRoot } from './ContentTreeRoot'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
