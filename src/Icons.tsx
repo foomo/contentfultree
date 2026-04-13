@@ -1,16 +1,19 @@
-import React, { type FC, type ReactElement, type SVGProps } from 'react'
-import styled from 'styled-components'
+import type { ReactElement } from 'react'
 
-export type SVGIcon = FC<SVGProps<SVGSVGElement>>
+export type IconId =
+	| 'WORLD'
+	| 'PAGE'
+	| 'APP'
+	| 'CART'
+	| 'FOLDER'
+	| 'LOVE'
+	| 'SHORTCUT'
 
-export interface IconProps {
-	icon?: SVGIcon
-}
-export const Icon = (props: { id?: string }): ReactElement => {
+export const Icon = (props: { id?: IconId }): ReactElement => {
 	switch (props.id) {
 		case 'WORLD':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg
 						id="Layer_1"
 						data-name="Layer 1"
@@ -20,11 +23,11 @@ export const Icon = (props: { id?: string }): ReactElement => {
 						<title>WORLD</title>
 						<path d="M113.66,23.69q-.345-.435-.72-.87A63.786,63.786,0,0,0,64.92.02C64.61.01,64.31,0,64,0s-.61.01-.92.02A63.789,63.789,0,0,0,14.93,22.98a6.164,6.164,0,0,0-.47.57.138.138,0,0,1-.03.04,63.8,63.8,0,0,0,0,80.82.138.138,0,0,1,.03.04,6.171,6.171,0,0,0,.47.57l.01.01a63.776,63.776,0,0,0,48.14,22.95c.614.02,1.226.02,1.84,0a63.786,63.786,0,0,0,48.02-22.8q.375-.435.72-.87a63.826,63.826,0,0,0,0-80.62ZM99.49,62.25a106.208,106.208,0,0,0-4.07-28.03,69.57,69.57,0,0,0,16.19-7.51,60.158,60.158,0,0,1,12.86,35.54ZM65.75,3.59c10.69,1.1,19.99,12.14,25.36,28.3a100.612,100.612,0,0,1-25.36,3.58Zm-3.5,31.88a100.612,100.612,0,0,1-25.36-3.58c5.37-16.16,14.67-27.2,25.36-28.3Zm0,3.5V62.25H32.01a104.4,104.4,0,0,1,3.85-27.02A104.159,104.159,0,0,0,62.25,38.97Zm0,26.78V89.03a104.161,104.161,0,0,0-26.39,3.74,104.4,104.4,0,0,1-3.85-27.02Zm0,26.78v31.88c-10.69-1.1-19.99-12.14-25.36-28.3A100.612,100.612,0,0,1,62.25,92.53Zm3.5,0a100.612,100.612,0,0,1,25.36,3.58c-5.37,16.16-14.67,27.2-25.36,28.3Zm0-3.5V65.75H95.99a104.477,104.477,0,0,1-3.85,27.03A103.333,103.333,0,0,0,65.75,89.03Zm0-26.78V38.97a103.33,103.33,0,0,0,26.39-3.75,104.478,104.478,0,0,1,3.85,27.03Zm43.6-38.26A66.171,66.171,0,0,1,94.37,30.9C90.53,19.48,84.76,10.4,77.89,5.11A60.6,60.6,0,0,1,109.35,23.99ZM50.11,5.11C43.24,10.4,37.47,19.48,33.63,30.9A67.031,67.031,0,0,1,18.65,24,60.513,60.513,0,0,1,50.11,5.11ZM16.39,26.7a69.605,69.605,0,0,0,16.19,7.53,106.07,106.07,0,0,0-4.07,28.02H3.53A60.188,60.188,0,0,1,16.39,26.7ZM28.51,65.75a106.069,106.069,0,0,0,4.07,28.02v.01a69.183,69.183,0,0,0-16.19,7.52A60.188,60.188,0,0,1,3.53,65.75ZM18.65,104a67.031,67.031,0,0,1,14.98-6.9c3.84,11.42,9.61,20.5,16.48,25.79A60.514,60.514,0,0,1,18.65,104Zm59.24,18.89c6.87-5.29,12.64-14.37,16.48-25.79a66.169,66.169,0,0,1,14.98,6.91A60.6,60.6,0,0,1,77.89,122.89Zm33.72-21.6a69.573,69.573,0,0,0-16.19-7.51,106.208,106.208,0,0,0,4.07-28.03h24.98A60.158,60.158,0,0,1,111.61,101.29Z" />
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'PAGE':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
 						<defs></defs>
 						<title>Asset 47ldpi</title>
@@ -47,11 +50,11 @@ export const Icon = (props: { id?: string }): ReactElement => {
 							</g>
 						</g>
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'APP':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 						<title>8-Book</title>
 						<g id="_8-Book" data-name="8-Book">
@@ -63,11 +66,11 @@ export const Icon = (props: { id?: string }): ReactElement => {
 							<path d="M31,11V9H28.9a5,5,0,0,0-.73-1.75l1.54-1.54L28.29,4.29,26.75,5.83A5,5,0,0,0,25,5.1V3H23V5.1a5,5,0,0,0-1.75.73L19.71,4.29,18.29,5.71l1.54,1.54A5,5,0,0,0,19.1,9H17v2h2.1a5,5,0,0,0,.73,1.75l-1.54,1.54,1.41,1.41,1.54-1.54A5,5,0,0,0,23,14.9V17h2V14.9a5,5,0,0,0,1.75-.73l1.54,1.54,1.41-1.41-1.54-1.54A5,5,0,0,0,28.9,11Zm-7,2a3,3,0,1,1,3-3A3,3,0,0,1,24,13Z" />
 						</g>
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'CART':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg
 						version="1.1"
 						id="shopping_x5F_carts_1_"
@@ -83,28 +86,28 @@ export const Icon = (props: { id?: string }): ReactElement => {
 							/>
 						</g>
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'FOLDER':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 						<path d="M64 15v37a5.006 5.006 0 0 1-5 5H5a5.006 5.006 0 0 1-5-5V12a5.006 5.006 0 0 1 5-5h14.116a6.966 6.966 0 0 1 5.466 2.627l5 6.247A2.983 2.983 0 0 0 31.922 17H59a1 1 0 0 1 0 2H31.922a4.979 4.979 0 0 1-3.9-1.876l-5-6.247A4.976 4.976 0 0 0 19.116 9H5a3 3 0 0 0-3 3v40a3 3 0 0 0 3 3h54a3 3 0 0 0 3-3V15a3 3 0 0 0-3-3H30a1 1 0 0 1 0-2h29a5.006 5.006 0 0 1 5 5z" />
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'LOVE':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path d="M22.813 7.338a6.736 6.736 0 0 0-3.8-4.49c-3.206-1.471-6 .878-7.016 1.9-1.013-1.025-3.813-3.374-7.016-1.9a6.736 6.736 0 0 0-3.8 4.49 5.818 5.818 0 0 0 1 4.98c1.708 2.215 9.156 8.891 9.472 9.174a.514.514 0 0 0 .688 0c.316-.283 7.764-6.959 9.472-9.174a5.815 5.815 0 0 0 1-4.98zM21 11.689c-1.448 1.878-7.488 7.362-9 8.726-1.512-1.364-7.552-6.848-9-8.726a4.8 4.8 0 0 1-.812-4.1 5.711 5.711 0 0 1 3.226-3.8c2.229-1.027 4.731.311 6.186 2.05a.516.516 0 0 0 .4.188.516.516 0 0 0 .4-.188c.029-.035 2.958-3.536 6.188-2.055a5.714 5.714 0 0 1 3.226 3.8A4.8 4.8 0 0 1 21 11.689z" />
 						<path d="M6.346 5a4.39 4.39 0 0 0-2.473 2.928 3.818 3.818 0 0 0 .656 3.272.515.515 0 0 0 .816-.629 2.8 2.8 0 0 1-.472-2.392 3.366 3.366 0 0 1 1.9-2.237A.515.515 0 0 0 6.346 5z" />
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 		case 'SHORTCUT':
 			return (
-				<StyledIcon>
+				<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<g data-name="13.Arrow up">
 							<path d="M12 24a12 12 0 1 1 12-12 12.013 12.013 0 0 1-12 12zm0-22a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2z" />
@@ -112,24 +115,14 @@ export const Icon = (props: { id?: string }): ReactElement => {
 							<path d="m3.707 17.707-1.414-1.414L6.586 12h5l4.707-4.707 1.414 1.414L12.414 14h-5l-3.707 3.707z" />
 						</g>
 					</svg>
-				</StyledIcon>
+				</span>
 			)
 	}
 	return (
-		<StyledIcon>
+		<span className="leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20.088" height="20.087">
 				<path d="M10.044 0a10.044 10.044 0 1 0 10.044 10.043A10.043 10.043 0 0 0 10.044 0zm.047 15.033a4.99 4.99 0 1 1 4.99-4.99 4.989 4.989 0 0 1-4.99 4.99z" />
 			</svg>
-		</StyledIcon>
+		</span>
 	)
 }
-
-export const StyledIcon = styled.span`
-	line-height: 1px;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	width: 16px;
-	height: 16px;
-	margin: 2px 4px;
-`

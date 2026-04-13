@@ -1,9 +1,10 @@
 import { type ReactElement } from 'react'
+import { type IconId } from './Icons'
 export interface ContentTreeNodeProps {
 	id: string
 	name: string
 	contentType?: string
-	icon?: string
+	icon?: IconId
 	expand: boolean
 	parentId?: string
 	childNodes?: ContentTreeNodeProps[]
@@ -19,4 +20,4 @@ declare const ContentTreeNode: (props: {
 	removeChildNodes: (node: ContentTreeNodeProps) => void
 	editEntry: (nodeId: string) => Promise<void>
 }) => ReactElement
-export default ContentTreeNode
+export { ContentTreeNode }

@@ -1,7 +1,15 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.2.10",
+	"version": "1.0.0",
+	"type": "module",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
 	"author": "foomo",
 	"license": "MIT",
 	"scripts": {
@@ -12,16 +20,14 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.9",
+		"@biomejs/biome": "2.4.11",
+		"@contentful/app-sdk": "4.53.1",
 		"@types/react": "19.2.14",
-		"typescript": "5.9.3"
+		"typescript": "6.0.2"
 	},
-	"optionalDependencies": {
-		"react": "19.2.4",
-		"styled-components": "6.3.12"
-	},
-	"dependencies": {
-		"contentful-management": "12.0.0",
-		"contentful-ui-extensions-sdk": "4.53.1"
+	"peerDependencies": {
+		"@contentful/app-sdk": ">=4",
+		"contentful-management": ">=12",
+		"react": ">=18"
 	}
 }

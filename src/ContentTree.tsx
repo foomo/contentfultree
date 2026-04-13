@@ -1,8 +1,9 @@
+import type { PageAppSDK } from '@contentful/app-sdk'
 import type { PlainClientAPI } from 'contentful-management'
-import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
-import React, { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 import { ContentTreeRoot } from './ContentTreeRoot'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
+import type { IconId } from './Icons'
 
 export interface ContentTreeProps {
 	sdkInstance: PageAppSDK
@@ -12,7 +13,7 @@ export interface ContentTreeProps {
 	titleFields: string[]
 	locales: string[] // the first is the default locale
 	indentation?: number
-	iconRegistry?: Record<string, string>
+	iconRegistry?: Record<string, IconId>
 }
 
 export const ContentTree = ({
@@ -29,27 +30,38 @@ export const ContentTree = ({
 	const [rootNodes, setRootNodes] = useState([emptyNodeProps()])
 
 	useEffect(() => {
-		if (sdkInstance) {
-			loadData().catch((err: ErrorOptions) => {
-				throw new Error('loadRootData', err)
-			})
+		if (!sdkInstance) {
+			return
 		}
-	}, [sdkInstance])
 
-	const loadData = async (): Promise<void> => {
-		const CfRootData = await cma.entry.getMany({
-			query: { content_type: rootType },
+		const loadData = async (): Promise<void> => {
+			const CfRootData = await cma.entry.getMany({
+				query: { content_type: rootType },
+			})
+			const nodes = cfEntriesToNodes(
+				CfRootData.items,
+				titleFields,
+				stLocale,
+				locales,
+				nodeContentTypes,
+				iconRegistry,
+			)
+			setRootNodes(nodes)
+		}
+
+		loadData().catch((err: unknown) => {
+			console.error('loadRootData', err)
 		})
-		const nodes = cfEntriesToNodes(
-			CfRootData.items,
-			titleFields,
-			stLocale,
-			locales,
-			nodeContentTypes,
-			iconRegistry,
-		)
-		setRootNodes(nodes)
-	}
+	}, [
+		sdkInstance,
+		cma,
+		rootType,
+		titleFields,
+		stLocale,
+		locales,
+		nodeContentTypes,
+		iconRegistry,
+	])
 
 	return (
 		<>

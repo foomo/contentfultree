@@ -1,15 +1,15 @@
+import type { PageAppSDK } from '@contentful/app-sdk'
 import type {
 	EntryProps,
 	KeyValueMap,
 	Link,
 	PlainClientAPI,
 } from 'contentful-management'
-import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
-import React, { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 
-import { StyledContentTreeTable } from './ContentTree.styled'
-import ContentTreeNode, { type ContentTreeNodeProps } from './ContentTreeNode'
+import { ContentTreeNode, type ContentTreeNodeProps } from './ContentTreeNode'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
+import type { IconId } from './Icons'
 
 export interface ContentTreeRootProps {
 	node: ContentTreeNodeProps
@@ -19,7 +19,7 @@ export interface ContentTreeRootProps {
 	titleFields: string[]
 	locales: string[] // the first is the default locale
 	depth: number
-	iconRegistry?: Record<string, string>
+	iconRegistry?: Record<string, IconId>
 }
 
 export const ContentTreeRoot = ({
@@ -36,54 +36,65 @@ export const ContentTreeRoot = ({
 	const [stRoot, setStRoot] = useState(emptyNodeProps())
 
 	useEffect(() => {
-		if (node.id) {
-			loadRootData(node).catch((err: ErrorOptions) => {
-				throw new Error('loadRootData', err)
-			})
+		if (!node.id) {
+			return
 		}
-	}, [node])
 
-	const loadRootData = async (
-		rootNode: ContentTreeNodeProps,
-	): Promise<void> => {
-		const childEntries = await getContentfulChildEntries(rootNode.id)
-		const childNodes = cfEntriesToNodes(
-			childEntries,
-			titleFields,
-			stLocale,
-			locales,
-			nodeContentTypes,
-			iconRegistry,
-			rootNode.id,
-		)
-		const nodes = [rootNode, ...childNodes]
-		if (nodes.length > 0) {
-			const newIdPositionMap = nodes.reduce((acc: any, el, i) => {
-				acc[el.id] = i
-				return acc
-			}, {})
-			let tree: ContentTreeNodeProps = emptyNodeProps()
-			nodes.forEach((node: ContentTreeNodeProps) => {
-				node.childNodes = []
-				if (!node.parentId) {
-					tree = node
-					return
+		const loadRootData = async (
+			rootNode: ContentTreeNodeProps,
+		): Promise<void> => {
+			const childEntries = await getContentfulChildEntries(rootNode.id)
+			const childNodes = cfEntriesToNodes(
+				childEntries,
+				titleFields,
+				stLocale,
+				locales,
+				nodeContentTypes,
+				iconRegistry,
+				rootNode.id,
+			)
+			const nodes = [rootNode, ...childNodes]
+			if (nodes.length > 0) {
+				const newIdPositionMap = nodes.reduce(
+					(acc: Record<string, number>, el, i) => {
+						acc[el.id] = i
+						return acc
+					},
+					{},
+				)
+				let tree: ContentTreeNodeProps = emptyNodeProps()
+				for (const node of nodes) {
+					node.childNodes = []
+					if (!node.parentId) {
+						tree = node
+						continue
+					}
+					const parentEl = nodes[newIdPositionMap[node.parentId]]
+					if (parentEl) {
+						parentEl.childNodes = [...(parentEl.childNodes ?? []), node]
+						parentEl.expand = false
+					}
 				}
-				const parentEl = nodes[newIdPositionMap[node.parentId]]
-				if (parentEl) {
-					parentEl.childNodes = [...(parentEl.childNodes ?? []), node]
-					parentEl.expand = false
-				}
-			})
-			console.log('🌴 tree', tree)
-			setStRoot(tree)
+				setStRoot(tree)
+			}
 		}
-	}
+
+		loadRootData(node).catch((err: unknown) => {
+			console.error('loadRootData', err)
+		})
+	}, [
+		node,
+		cma,
+		titleFields,
+		stLocale,
+		locales,
+		nodeContentTypes,
+		iconRegistry,
+	])
 
 	const addChildNodes = async (node: ContentTreeNodeProps): Promise<void> => {
-		let childNodes: ContentTreeNodeProps[] = []
 		const cfChildren = await getContentfulChildEntries(node.id)
-		childNodes = cfEntriesToNodes(
+		const childNodes = cfEntriesToNodes(
 			cfChildren,
 			titleFields,
 			stLocale,
@@ -94,7 +105,7 @@ export const ContentTreeRoot = ({
 		)
 
 		setStRoot((prevState) => {
-			const newState = { ...prevState }
+			const newState = structuredClone(prevState)
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
@@ -164,7 +175,7 @@ export const ContentTreeRoot = ({
 		}
 		const cfChildren: EntryProps<KeyValueMap>[] = []
 		const idPositionMap: Record<string, number> = allItems.reduce(
-			(acc: any, el, i) => {
+			(acc: Record<string, number>, el, i) => {
 				acc[el.sys.id] = i
 				return acc
 			},
@@ -180,7 +191,7 @@ export const ContentTreeRoot = ({
 
 	const removeChildNodes = (node: ContentTreeNodeProps): void => {
 		setStRoot((prevState) => {
-			const newState = { ...prevState }
+			const newState = structuredClone(prevState)
 			recursiveProcessNodes(
 				node.id,
 				(targetNode) => {
@@ -194,25 +205,33 @@ export const ContentTreeRoot = ({
 	}
 
 	return (
-		<>
-			<StyledContentTreeTable>
-				<tbody>
-					<tr>
-						<th>Nodes</th>
-						<th>Content Type</th>
-						<th>Status</th>
-						<th>Last Modified</th>
-						<th>Last Published</th>
-					</tr>
-					<ContentTreeNode
-						node={stRoot}
-						depth={depth}
-						addChildNodes={addChildNodes}
-						removeChildNodes={removeChildNodes}
-						editEntry={editEntry}
-					/>
-				</tbody>
-			</StyledContentTreeTable>
-		</>
+		<table className="w-full text-black border-0 px-[60px] mx-auto">
+			<tbody>
+				<tr>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Nodes
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Content Type
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Status
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Last Modified
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Last Published
+					</th>
+				</tr>
+				<ContentTreeNode
+					node={stRoot}
+					depth={depth}
+					addChildNodes={addChildNodes}
+					removeChildNodes={removeChildNodes}
+					editEntry={editEntry}
+				/>
+			</tbody>
+		</table>
 	)
 }

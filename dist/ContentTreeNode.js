@@ -1,317 +1,120 @@
-'use strict'
-var __createBinding =
-	(this && this.__createBinding) ||
-	(Object.create
-		? function (o, m, k, k2) {
-				if (k2 === undefined) k2 = k
-				var desc = Object.getOwnPropertyDescriptor(m, k)
-				if (
-					!desc ||
-					('get' in desc ? !m.__esModule : desc.writable || desc.configurable)
-				) {
-					desc = {
-						enumerable: true,
-						get: function () {
-							return m[k]
-						},
-					}
-				}
-				Object.defineProperty(o, k2, desc)
-			}
-		: function (o, m, k, k2) {
-				if (k2 === undefined) k2 = k
-				o[k2] = m[k]
-			})
-var __setModuleDefault =
-	(this && this.__setModuleDefault) ||
-	(Object.create
-		? function (o, v) {
-				Object.defineProperty(o, 'default', { enumerable: true, value: v })
-			}
-		: function (o, v) {
-				o['default'] = v
-			})
-var __importStar =
-	(this && this.__importStar) ||
-	(function () {
-		var ownKeys = function (o) {
-			ownKeys =
-				Object.getOwnPropertyNames ||
-				function (o) {
-					var ar = []
-					for (var k in o)
-						if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k
-					return ar
-				}
-			return ownKeys(o)
-		}
-		return function (mod) {
-			if (mod && mod.__esModule) return mod
-			var result = {}
-			if (mod != null)
-				for (var k = ownKeys(mod), i = 0; i < k.length; i++)
-					if (k[i] !== 'default') __createBinding(result, mod, k[i])
-			__setModuleDefault(result, mod)
-			return result
-		}
-	})()
-var __awaiter =
-	(this && this.__awaiter) ||
-	function (thisArg, _arguments, P, generator) {
-		function adopt(value) {
-			return value instanceof P
-				? value
-				: new P(function (resolve) {
-						resolve(value)
-					})
-		}
-		return new (P || (P = Promise))(function (resolve, reject) {
-			function fulfilled(value) {
-				try {
-					step(generator.next(value))
-				} catch (e) {
-					reject(e)
-				}
-			}
-			function rejected(value) {
-				try {
-					step(generator['throw'](value))
-				} catch (e) {
-					reject(e)
-				}
-			}
-			function step(result) {
-				result.done
-					? resolve(result.value)
-					: adopt(result.value).then(fulfilled, rejected)
-			}
-			step((generator = generator.apply(thisArg, _arguments || [])).next())
+import { useState } from 'react'
+import {
+	Fragment as _Fragment,
+	jsx as _jsx,
+	jsxs as _jsxs,
+} from 'react/jsx-runtime'
+import { Icon } from './Icons'
+
+const publishingStatusStyles = {
+	draft: 'text-[rgb(177,45,0)] bg-[rgb(253,229,192)]',
+	changed: 'text-[rgb(0,89,200)] bg-[rgb(206,236,255)]',
+	published: 'text-[rgb(0,109,35)] bg-[rgb(205,243,198)]',
+}
+const ContentTreeNode = (props) => {
+	const [loading, setLoading] = useState(false)
+	const addChildren = async (node) => {
+		setLoading(true)
+		await props.addChildNodes(node)
+		setLoading(false)
+	}
+	const handleEditEntry = () => {
+		props.editEntry(props.node.id).catch((err) => {
+			console.error('handleEditEntry', err)
 		})
 	}
-var __generator =
-	(this && this.__generator) ||
-	function (thisArg, body) {
-		var _ = {
-				label: 0,
-				sent: function () {
-					if (t[0] & 1) throw t[1]
-					return t[1]
-				},
-				trys: [],
-				ops: [],
-			},
-			f,
-			y,
-			t,
-			g = Object.create(
-				(typeof Iterator === 'function' ? Iterator : Object).prototype,
-			)
-		return (
-			(g.next = verb(0)),
-			(g['throw'] = verb(1)),
-			(g['return'] = verb(2)),
-			typeof Symbol === 'function' &&
-				(g[Symbol.iterator] = function () {
-					return this
-				}),
-			g
-		)
-		function verb(n) {
-			return function (v) {
-				return step([n, v])
-			}
-		}
-		function step(op) {
-			if (f) throw new TypeError('Generator is already executing.')
-			while ((g && ((g = 0), op[0] && (_ = 0)), _))
-				try {
-					if (
-						((f = 1),
-						y &&
-							(t =
-								op[0] & 2
-									? y['return']
-									: op[0]
-										? y['throw'] || ((t = y['return']) && t.call(y), 0)
-										: y.next) &&
-							!(t = t.call(y, op[1])).done)
-					)
-						return t
-					if (((y = 0), t)) op = [op[0] & 2, t.value]
-					switch (op[0]) {
-						case 0:
-						case 1:
-							t = op
-							break
-						case 4:
-							_.label++
-							return { value: op[1], done: false }
-						case 5:
-							_.label++
-							y = op[1]
-							op = [0]
-							continue
-						case 7:
-							op = _.ops.pop()
-							_.trys.pop()
-							continue
-						default:
-							if (
-								!((t = _.trys), (t = t.length > 0 && t[t.length - 1])) &&
-								(op[0] === 6 || op[0] === 2)
-							) {
-								_ = 0
-								continue
-							}
-							if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
-								_.label = op[1]
-								break
-							}
-							if (op[0] === 6 && _.label < t[1]) {
-								_.label = t[1]
-								t = op
-								break
-							}
-							if (t && _.label < t[2]) {
-								_.label = t[2]
-								_.ops.push(op)
-								break
-							}
-							if (t[2]) _.ops.pop()
-							_.trys.pop()
-							continue
-					}
-					op = body.call(thisArg, _)
-				} catch (e) {
-					op = [6, e]
-					y = 0
-				} finally {
-					f = t = 0
-				}
-			if (op[0] & 5) throw op[1]
-			return { value: op[0] ? op[1] : void 0, done: true }
-		}
-	}
-Object.defineProperty(exports, '__esModule', { value: true })
-var react_1 = __importStar(require('react'))
-var ContentTree_styled_1 = require('./ContentTree.styled')
-var Icons_1 = require('./Icons')
-var ContentTreeNode = function (props) {
-	var _a, _b
-	var _c = (0, react_1.useState)(false),
-		loading = _c[0],
-		setLoading = _c[1]
-	var addChildren = function (node) {
-		return __awaiter(void 0, void 0, void 0, function () {
-			return __generator(this, function (_a) {
-				switch (_a.label) {
-					case 0:
-						setLoading(true)
-						return [4, props.addChildNodes(node)]
-					case 1:
-						_a.sent()
-						setLoading(false)
-						return [2]
-				}
-			})
+	const handleAddChildren = (node) => {
+		addChildren(node).catch((err) => {
+			console.error('handleAddChildren', err)
 		})
 	}
-	var handleEditEntry = function () {
-		props.editEntry(props.node.id).catch(function (err) {
-			throw new Error('handleEditEntry', err)
-		})
-	}
-	var handleAddChildren = function (node) {
-		addChildren(node).catch(function (err) {
-			throw new Error('handleAddChildren', err)
-		})
-	}
-	return react_1.default.createElement(
-		react_1.default.Fragment,
-		null,
-		react_1.default.createElement(
-			'tr',
-			null,
-			react_1.default.createElement(
-				ContentTree_styled_1.StyledContentTreeTableNodeCell,
-				{ $depth: props.depth },
-				react_1.default.createElement(
-					ContentTree_styled_1.StyledContentTreeNodeWedge,
-					null,
-					loading
-						? react_1.default.createElement(
-								ContentTree_styled_1.StyledSpinner,
-								null,
-								'-',
-							)
-						: props.node.hasChildNodes
-							? props.node.expand
-								? react_1.default.createElement(
-										'a',
-										{
-											onClick: function () {
-												handleAddChildren(props.node)
-											},
-										},
-										'+',
-									)
-								: react_1.default.createElement(
-										'a',
-										{
-											onClick: function () {
-												props.removeChildNodes(props.node)
-											},
-										},
-										'-',
-									)
-							: null,
-				),
-				react_1.default.createElement(Icons_1.Icon, { id: props.node.icon }),
-				react_1.default.createElement(
-					ContentTree_styled_1.StyledContentTreeNodeName,
-					null,
-					react_1.default.createElement(
-						'a',
-						{
-							onClick: function () {
-								handleEditEntry()
-							},
-							title: props.node.id,
-						},
-						props.node.name,
-					),
-				),
-			),
-			react_1.default.createElement('td', null, props.node.contentType),
-			react_1.default.createElement(
-				'td',
-				null,
-				react_1.default.createElement(
-					ContentTree_styled_1.StyledContentTreeNodePublishingStatus,
+	return _jsxs(_Fragment, {
+		children: [
+			_jsxs('tr', {
+				children: [
+					_jsxs('td', {
+						className: 'pr-8 text-black min-w-[450px]',
+						style: { paddingLeft: `${props.depth}em` },
+						children: [
+							_jsx('div', {
+								className: 'inline-block w-4 text-left',
+								children: loading
+									? _jsx('div', {
+											className: 'inline-block w-4 animate-spin',
+											children: '-',
+										})
+									: props.node.hasChildNodes
+										? props.node.expand
+											? _jsx('a', {
+													className: 'cursor-pointer text-[130%] leading-none',
+													onClick: () => {
+														handleAddChildren(props.node)
+													},
+													children: '+',
+												})
+											: _jsx('a', {
+													className: 'cursor-pointer text-[130%] leading-none',
+													onClick: () => {
+														props.removeChildNodes(props.node)
+													},
+													children: '-',
+												})
+										: null,
+							}),
+							_jsx(Icon, { id: props.node.icon }),
+							_jsx('div', {
+								className: 'inline-block',
+								children: _jsx('a', {
+									className: 'cursor-pointer hover:underline',
+									onClick: () => {
+										handleEditEntry()
+									},
+									title: props.node.id,
+									children: props.node.name,
+								}),
+							}),
+						],
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.contentType,
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: _jsx('div', {
+							className: `inline-block font-sans font-semibold text-[80%] uppercase tracking-[0.06rem] rounded px-[0.2rem] ${publishingStatusStyles[props.node.publishingStatus ?? ''] ?? ''}`,
+							children: props.node.publishingStatus,
+						}),
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.updatedAt,
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.publishedAt,
+					}),
+				],
+			}),
+			props.node.childNodes?.map((node, i) => {
+				return _jsx(
+					ContentTreeNode,
 					{
-						$status:
-							(_a = props.node.publishingStatus) !== null && _a !== void 0
-								? _a
-								: '',
-					},
-					props.node.publishingStatus,
-				),
-			),
-			react_1.default.createElement('td', null, props.node.updatedAt),
-			react_1.default.createElement('td', null, props.node.publishedAt),
-		),
-		(_b = props.node.childNodes) === null || _b === void 0
-			? void 0
-			: _b.map(function (node, i) {
-					return react_1.default.createElement(ContentTreeNode, {
-						key: i.toString(),
 						node: node,
 						depth: props.depth && props.depth + 1,
 						addChildNodes: props.addChildNodes,
 						removeChildNodes: props.removeChildNodes,
 						editEntry: props.editEntry,
-					})
-				}),
-	)
+					},
+					i.toString(),
+				)
+			}),
+		],
+	})
 }
-exports.default = ContentTreeNode
+
+export { ContentTreeNode }
