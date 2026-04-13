@@ -4,15 +4,13 @@ import {
 	jsx as _jsx,
 	jsxs as _jsxs,
 } from 'react/jsx-runtime'
-import {
-	StyledContentTreeNodeName,
-	StyledContentTreeNodePublishingStatus,
-	StyledContentTreeNodeWedge,
-	StyledContentTreeTableNodeCell,
-	StyledSpinner,
-} from './ContentTree.styled'
 import { Icon } from './Icons'
 
+const publishingStatusStyles = {
+	draft: 'text-[rgb(177,45,0)] bg-[rgb(253,229,192)]',
+	changed: 'text-[rgb(0,89,200)] bg-[rgb(206,236,255)]',
+	published: 'text-[rgb(0,109,35)] bg-[rgb(205,243,198)]',
+}
 const ContentTreeNode = (props) => {
 	const [loading, setLoading] = useState(false)
 	const addChildren = async (node) => {
@@ -34,21 +32,28 @@ const ContentTreeNode = (props) => {
 		children: [
 			_jsxs('tr', {
 				children: [
-					_jsxs(StyledContentTreeTableNodeCell, {
-						$depth: props.depth,
+					_jsxs('td', {
+						className: 'pr-8 text-black min-w-[450px]',
+						style: { paddingLeft: `${props.depth}em` },
 						children: [
-							_jsx(StyledContentTreeNodeWedge, {
+							_jsx('div', {
+								className: 'inline-block w-4 text-left',
 								children: loading
-									? _jsx(StyledSpinner, { children: '-' })
+									? _jsx('div', {
+											className: 'inline-block w-4 animate-spin',
+											children: '-',
+										})
 									: props.node.hasChildNodes
 										? props.node.expand
 											? _jsx('a', {
+													className: 'cursor-pointer text-[130%] leading-none',
 													onClick: () => {
 														handleAddChildren(props.node)
 													},
 													children: '+',
 												})
 											: _jsx('a', {
+													className: 'cursor-pointer text-[130%] leading-none',
 													onClick: () => {
 														props.removeChildNodes(props.node)
 													},
@@ -57,8 +62,10 @@ const ContentTreeNode = (props) => {
 										: null,
 							}),
 							_jsx(Icon, { id: props.node.icon }),
-							_jsx(StyledContentTreeNodeName, {
+							_jsx('div', {
+								className: 'inline-block',
 								children: _jsx('a', {
+									className: 'cursor-pointer hover:underline',
 									onClick: () => {
 										handleEditEntry()
 									},
@@ -68,15 +75,29 @@ const ContentTreeNode = (props) => {
 							}),
 						],
 					}),
-					_jsx('td', { children: props.node.contentType }),
 					_jsx('td', {
-						children: _jsx(StyledContentTreeNodePublishingStatus, {
-							$status: props.node.publishingStatus ?? '',
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.contentType,
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: _jsx('div', {
+							className: `inline-block font-sans font-semibold text-[80%] uppercase tracking-[0.06rem] rounded px-[0.2rem] ${publishingStatusStyles[props.node.publishingStatus ?? ''] ?? ''}`,
 							children: props.node.publishingStatus,
 						}),
 					}),
-					_jsx('td', { children: props.node.updatedAt }),
-					_jsx('td', { children: props.node.publishedAt }),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.updatedAt,
+					}),
+					_jsx('td', {
+						className:
+							'py-[0.2em] pr-4 pl-[0.2em] text-gray-400 border-b border-[#efefef]',
+						children: props.node.publishedAt,
+					}),
 				],
 			}),
 			props.node.childNodes?.map((node, i) => {

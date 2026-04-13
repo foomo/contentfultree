@@ -1,6 +1,6 @@
 {
 	"name": "@foomo/contentfultree",
-	"version": "0.2.10",
+	"version": "1.0.0",
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -28,7 +28,6 @@
 	"peerDependencies": {
 		"@contentful/app-sdk": ">=4",
 		"contentful-management": ">=12",
-		"react": ">=18",
-		"styled-components": ">=6"
+		"react": ">=18"
 	}
 }

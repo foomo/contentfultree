@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-	Fragment as _Fragment,
-	jsx as _jsx,
-	jsxs as _jsxs,
-} from 'react/jsx-runtime'
-import { StyledContentTreeTable } from './ContentTree.styled'
+import { jsx as _jsx, jsxs as _jsxs } from 'react/jsx-runtime'
 import { ContentTreeNode } from './ContentTreeNode'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
 export const ContentTreeRoot = ({
@@ -163,28 +158,47 @@ export const ContentTreeRoot = ({
 			return newState
 		})
 	}
-	return _jsx(_Fragment, {
-		children: _jsx(StyledContentTreeTable, {
-			children: _jsxs('tbody', {
-				children: [
-					_jsxs('tr', {
-						children: [
-							_jsx('th', { children: 'Nodes' }),
-							_jsx('th', { children: 'Content Type' }),
-							_jsx('th', { children: 'Status' }),
-							_jsx('th', { children: 'Last Modified' }),
-							_jsx('th', { children: 'Last Published' }),
-						],
-					}),
-					_jsx(ContentTreeNode, {
-						node: stRoot,
-						depth: depth,
-						addChildNodes: addChildNodes,
-						removeChildNodes: removeChildNodes,
-						editEntry: editEntry,
-					}),
-				],
-			}),
+	return _jsx('table', {
+		className: 'w-full text-black border-0 px-[60px] mx-auto',
+		children: _jsxs('tbody', {
+			children: [
+				_jsxs('tr', {
+					children: [
+						_jsx('th', {
+							className:
+								'text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]',
+							children: 'Nodes',
+						}),
+						_jsx('th', {
+							className:
+								'text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]',
+							children: 'Content Type',
+						}),
+						_jsx('th', {
+							className:
+								'text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]',
+							children: 'Status',
+						}),
+						_jsx('th', {
+							className:
+								'text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]',
+							children: 'Last Modified',
+						}),
+						_jsx('th', {
+							className:
+								'text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]',
+							children: 'Last Published',
+						}),
+					],
+				}),
+				_jsx(ContentTreeNode, {
+					node: stRoot,
+					depth: depth,
+					addChildNodes: addChildNodes,
+					removeChildNodes: removeChildNodes,
+					editEntry: editEntry,
+				}),
+			],
 		}),
 	})
 }

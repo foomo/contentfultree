@@ -1,5 +1,5 @@
-import type { PlainClientAPI } from 'contentful-management'
 import type { PageAppSDK } from '@contentful/app-sdk'
+import type { PlainClientAPI } from 'contentful-management'
 import { type ReactElement } from 'react'
 import { type ContentTreeNodeProps } from './ContentTreeNode'
 import type { IconId } from './Icons'

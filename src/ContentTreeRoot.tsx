@@ -7,7 +7,6 @@ import type {
 } from 'contentful-management'
 import { type ReactElement, useEffect, useState } from 'react'
 
-import { StyledContentTreeTable } from './ContentTree.styled'
 import { ContentTreeNode, type ContentTreeNodeProps } from './ContentTreeNode'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
 import type { IconId } from './Icons'
@@ -206,25 +205,33 @@ export const ContentTreeRoot = ({
 	}
 
 	return (
-		<>
-			<StyledContentTreeTable>
-				<tbody>
-					<tr>
-						<th>Nodes</th>
-						<th>Content Type</th>
-						<th>Status</th>
-						<th>Last Modified</th>
-						<th>Last Published</th>
-					</tr>
-					<ContentTreeNode
-						node={stRoot}
-						depth={depth}
-						addChildNodes={addChildNodes}
-						removeChildNodes={removeChildNodes}
-						editEntry={editEntry}
-					/>
-				</tbody>
-			</StyledContentTreeTable>
-		</>
+		<table className="w-full text-black border-0 px-[60px] mx-auto">
+			<tbody>
+				<tr>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Nodes
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Content Type
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Status
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Last Modified
+					</th>
+					<th className="text-left font-normal text-[85%] text-gray-500 bg-[#efefef] p-[0.2em]">
+						Last Published
+					</th>
+				</tr>
+				<ContentTreeNode
+					node={stRoot}
+					depth={depth}
+					addChildNodes={addChildNodes}
+					removeChildNodes={removeChildNodes}
+					editEntry={editEntry}
+				/>
+			</tbody>
+		</table>
 	)
 }

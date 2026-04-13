@@ -1,9 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs } from 'react/jsx-runtime'
-import styled from 'styled-components'
 export const Icon = (props) => {
 	switch (props.id) {
 		case 'WORLD':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsxs('svg', {
 					id: 'Layer_1',
 					'data-name': 'Layer 1',
@@ -18,7 +19,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'PAGE':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsxs('svg', {
 					xmlns: 'http://www.w3.org/2000/svg',
 					viewBox: '0 0 48 48',
@@ -59,7 +62,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'APP':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsxs('svg', {
 					xmlns: 'http://www.w3.org/2000/svg',
 					viewBox: '0 0 32 32',
@@ -87,7 +92,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'CART':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsx('svg', {
 					version: '1.1',
 					id: 'shopping_x5F_carts_1_',
@@ -105,7 +112,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'FOLDER':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsx('svg', {
 					xmlns: 'http://www.w3.org/2000/svg',
 					viewBox: '0 0 64 64',
@@ -115,7 +124,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'LOVE':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsxs('svg', {
 					xmlns: 'http://www.w3.org/2000/svg',
 					viewBox: '0 0 24 24',
@@ -130,7 +141,9 @@ export const Icon = (props) => {
 				}),
 			})
 		case 'SHORTCUT':
-			return _jsx(StyledIcon, {
+			return _jsx('span', {
+				className:
+					'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 				children: _jsx('svg', {
 					xmlns: 'http://www.w3.org/2000/svg',
 					viewBox: '0 0 24 24',
@@ -149,7 +162,9 @@ export const Icon = (props) => {
 				}),
 			})
 	}
-	return _jsx(StyledIcon, {
+	return _jsx('span', {
+		className:
+			'leading-[1px] relative inline-block align-top w-4 h-4 my-0.5 mx-1',
 		children: _jsx('svg', {
 			xmlns: 'http://www.w3.org/2000/svg',
 			width: '20.088',
@@ -160,12 +175,3 @@ export const Icon = (props) => {
 		}),
 	})
 }
-export const StyledIcon = styled.span`
-	line-height: 1px;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	width: 16px;
-	height: 16px;
-	margin: 2px 4px;
-`
