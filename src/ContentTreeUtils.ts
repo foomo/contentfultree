@@ -1,5 +1,6 @@
 import type { EntryProps, KeyValueMap } from 'contentful-management'
 import type { ContentTreeNodeProps } from './ContentTreeNode'
+import type { IconId } from './Icons'
 
 export const emptyNodeProps = (): ContentTreeNodeProps => {
 	return { id: '', name: '', expand: false, parentId: '' }
@@ -36,16 +37,12 @@ export const cfEntriesToNodes = (
 	stLocale: string,
 	locales: string[],
 	nodeContentTypes: string[],
-	iconRegistry?: Record<string, string>,
+	iconRegistry?: Record<string, IconId>,
 	parentId?: string,
 ): ContentTreeNodeProps[] => {
-	if (entries.length === 0) {
-		return []
-	}
-	const nodeArray: ContentTreeNodeProps[] = []
-	entries.forEach((entry) => {
+	return entries.flatMap((entry) => {
 		if (!entry) {
-			return
+			return []
 		}
 		let name = ''
 		for (const titleField of titleFields) {
@@ -57,20 +54,19 @@ export const cfEntriesToNodes = (
 		if (name === '') {
 			name = entry.sys.id
 		}
-		const node: ContentTreeNodeProps = {
-			id: entry.sys.id,
-			name,
-			contentType: entry.sys.contentType.sys.id,
-			icon:
-				iconRegistry != null ? iconRegistry[entry.sys.contentType.sys.id] : '',
-			expand: !!parentId,
-			parentId,
-			hasChildNodes: cfEntryHasChildren(entry, nodeContentTypes, locales),
-			publishingStatus: cfEntryPublishingStatus(entry),
-			updatedAt: entry.sys.updatedAt,
-			publishedAt: entry.sys.publishedAt,
-		}
-		nodeArray.push(node)
+		return [
+			{
+				id: entry.sys.id,
+				name,
+				contentType: entry.sys.contentType.sys.id,
+				icon: iconRegistry?.[entry.sys.contentType.sys.id],
+				expand: !!parentId,
+				parentId,
+				hasChildNodes: cfEntryHasChildren(entry, nodeContentTypes, locales),
+				publishingStatus: cfEntryPublishingStatus(entry),
+				updatedAt: entry.sys.updatedAt,
+				publishedAt: entry.sys.publishedAt,
+			},
+		]
 	})
-	return nodeArray
 }

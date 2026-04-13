@@ -1,6 +1,7 @@
 import type { PlainClientAPI } from 'contentful-management'
 import type { PageAppSDK } from 'contentful-ui-extensions-sdk'
 import { type ReactElement } from 'react'
+import type { IconId } from './Icons'
 export interface ContentTreeProps {
 	sdkInstance: PageAppSDK
 	cma: PlainClientAPI
@@ -9,7 +10,7 @@ export interface ContentTreeProps {
 	titleFields: string[]
 	locales: string[]
 	indentation?: number
-	iconRegistry?: Record<string, string>
+	iconRegistry?: Record<string, IconId>
 }
 export declare const ContentTree: ({
 	sdkInstance,

@@ -17,10 +17,6 @@
 ## Editorconfig
 !.editorconfig
 
-## Husky
-!.husky/
-!.husky.yaml
-
 ## Node
 node_modules/
 

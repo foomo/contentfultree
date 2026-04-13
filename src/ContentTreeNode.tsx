@@ -1,4 +1,4 @@
-import React, { type ReactElement, useState } from 'react'
+import { type ReactElement, useState } from 'react'
 
 import {
 	StyledContentTreeNodeName,
@@ -7,13 +7,13 @@ import {
 	StyledContentTreeTableNodeCell,
 	StyledSpinner,
 } from './ContentTree.styled'
-import { Icon } from './Icons'
+import { Icon, type IconId } from './Icons'
 
 export interface ContentTreeNodeProps {
 	id: string
 	name: string
 	contentType?: string
-	icon?: string
+	icon?: IconId
 	expand: boolean
 	parentId?: string
 	childNodes?: ContentTreeNodeProps[]
@@ -39,14 +39,14 @@ const ContentTreeNode = (props: {
 	}
 
 	const handleEditEntry = (): void => {
-		props.editEntry(props.node.id).catch((err: ErrorOptions) => {
-			throw new Error('handleEditEntry', err)
+		props.editEntry(props.node.id).catch((err: unknown) => {
+			console.error('handleEditEntry', err)
 		})
 	}
 
 	const handleAddChildren = (node: ContentTreeNodeProps): void => {
-		addChildren(node).catch((err: ErrorOptions) => {
-			throw new Error('handleAddChildren', err)
+		addChildren(node).catch((err: unknown) => {
+			console.error('handleAddChildren', err)
 		})
 	}
 
@@ -116,4 +116,4 @@ const ContentTreeNode = (props: {
 	)
 }
 
-export default ContentTreeNode
+export { ContentTreeNode }

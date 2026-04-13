@@ -1,12 +1,16 @@
-import React, { type FC, type ReactElement, type SVGProps } from 'react'
+import type { ReactElement } from 'react'
 import styled from 'styled-components'
 
-export type SVGIcon = FC<SVGProps<SVGSVGElement>>
+export type IconId =
+	| 'WORLD'
+	| 'PAGE'
+	| 'APP'
+	| 'CART'
+	| 'FOLDER'
+	| 'LOVE'
+	| 'SHORTCUT'
 
-export interface IconProps {
-	icon?: SVGIcon
-}
-export const Icon = (props: { id?: string }): ReactElement => {
+export const Icon = (props: { id?: IconId }): ReactElement => {
 	switch (props.id) {
 		case 'WORLD':
 			return (

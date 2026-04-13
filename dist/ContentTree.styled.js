@@ -1,78 +1,54 @@
-'use strict'
-var __makeTemplateObject =
-	(this && this.__makeTemplateObject) ||
-	function (cooked, raw) {
-		if (Object.defineProperty) {
-			Object.defineProperty(cooked, 'raw', { value: raw })
-		} else {
-			cooked.raw = raw
-		}
-		return cooked
+import styled from 'styled-components'
+export const StyledContentTreeTable = styled.table`
+	width: 100%;
+	color: black;
+	border: 0;
+	padding: 0 60px;
+	margin: 0 auto;
+	td {
+		padding: 0.2em 1em 0.2em 0.2em;
+		color: #999999;
+		border-bottom: 1px solid #efefef;
 	}
-var __importDefault =
-	(this && this.__importDefault) ||
-	function (mod) {
-		return mod && mod.__esModule ? mod : { default: mod }
+	th {
+		text-align: left;
+		font-weight: normal;
+		font-size: 85%;
+		color: #666666;
+		background: #efefef;
+		padding: 0.2em;
 	}
-Object.defineProperty(exports, '__esModule', { value: true })
-exports.StyledSpinner =
-	exports.StyledContentTreeNodePublishingStatus =
-	exports.StyledContentTreeNodeName =
-	exports.StyledContentTreeNodeWedge =
-	exports.StyledContentTreeTableNodeCell =
-	exports.StyledContentTreeTable =
-		void 0
-var styled_components_1 = __importDefault(require('styled-components'))
-exports.StyledContentTreeTable = styled_components_1.default.table(
-	templateObject_1 ||
-		(templateObject_1 = __makeTemplateObject(
-			[
-				'\n\twidth: 100%;\n\tcolor: black;\n\tborder: 0;\n\tpadding: 0 60px;\n\tmargin: 0 auto;\n\ttd {\n\t\tpadding: 0.2em 1em 0.2em 0.2em;\n\t\tcolor: #999999;\n\t\tborder-bottom: 1px solid #efefef;\n\t}\n\tth {\n\t\ttext-align: left;\n\t\tfont-weight: normal;\n\t\tfont-size: 85%;\n\t\tcolor: #666666;\n\t\tbackground: #efefef;\n\t\tpadding: 0.2em;\n\t}\n\tth.first {\n\t\tfont-weight: bold !important;\n\t\tcolor: black !important;\n\t}\n',
-			],
-			[
-				'\n\twidth: 100%;\n\tcolor: black;\n\tborder: 0;\n\tpadding: 0 60px;\n\tmargin: 0 auto;\n\ttd {\n\t\tpadding: 0.2em 1em 0.2em 0.2em;\n\t\tcolor: #999999;\n\t\tborder-bottom: 1px solid #efefef;\n\t}\n\tth {\n\t\ttext-align: left;\n\t\tfont-weight: normal;\n\t\tfont-size: 85%;\n\t\tcolor: #666666;\n\t\tbackground: #efefef;\n\t\tpadding: 0.2em;\n\t}\n\tth.first {\n\t\tfont-weight: bold !important;\n\t\tcolor: black !important;\n\t}\n',
-			],
-		)),
-)
-exports.StyledContentTreeTableNodeCell = styled_components_1.default.td(
-	templateObject_2 ||
-		(templateObject_2 = __makeTemplateObject(
-			[
-				'\n\tpadding-left: ',
-				'em !important;\n\tpadding-right: 2em !important;\n\tcolor: black !important;\n\tmin-width: 450px !important;\n',
-			],
-			[
-				'\n\tpadding-left: ',
-				'em !important;\n\tpadding-right: 2em !important;\n\tcolor: black !important;\n\tmin-width: 450px !important;\n',
-			],
-		)),
-	function (props) {
-		return props.$depth
-	},
-)
-exports.StyledContentTreeNodeWedge = styled_components_1.default.div(
-	templateObject_3 ||
-		(templateObject_3 = __makeTemplateObject(
-			[
-				'\n\tdisplay: inline-block;\n\twidth: 1em;\n\ttext-align: left;\n\ta {\n\t\tcursor: pointer;\n\t\tfont-size: 130%;\n\t\tline-height: 100%;\n\t}\n',
-			],
-			[
-				'\n\tdisplay: inline-block;\n\twidth: 1em;\n\ttext-align: left;\n\ta {\n\t\tcursor: pointer;\n\t\tfont-size: 130%;\n\t\tline-height: 100%;\n\t}\n',
-			],
-		)),
-)
-exports.StyledContentTreeNodeName = styled_components_1.default.div(
-	templateObject_4 ||
-		(templateObject_4 = __makeTemplateObject(
-			[
-				'\n\tdisplay: inline-block;\n\ta {\n\t\tcursor: pointer;\n\t}\n\ta:hover {\n\t\ttext-decoration: underline;\n\t}\n',
-			],
-			[
-				'\n\tdisplay: inline-block;\n\ta {\n\t\tcursor: pointer;\n\t}\n\ta:hover {\n\t\ttext-decoration: underline;\n\t}\n',
-			],
-		)),
-)
-var getPublishingStatusColors = function (status) {
+	th.first {
+		font-weight: bold !important;
+		color: black !important;
+	}
+`
+export const StyledContentTreeTableNodeCell = styled.td`
+	padding-left: ${(props) => props.$depth}em !important;
+	padding-right: 2em !important;
+	color: black !important;
+	min-width: 450px !important;
+`
+export const StyledContentTreeNodeWedge = styled.div`
+	display: inline-block;
+	width: 1em;
+	text-align: left;
+	a {
+		cursor: pointer;
+		font-size: 130%;
+		line-height: 100%;
+	}
+`
+export const StyledContentTreeNodeName = styled.div`
+	display: inline-block;
+	a {
+		cursor: pointer;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+`
+const getPublishingStatusColors = (status) => {
 	switch (status) {
 		case 'draft':
 			return {
@@ -91,49 +67,37 @@ var getPublishingStatusColors = function (status) {
 			}
 	}
 }
-exports.StyledContentTreeNodePublishingStatus = styled_components_1.default.div(
-	templateObject_5 ||
-		(templateObject_5 = __makeTemplateObject(
-			[
-				'\n\tdisplay: inline-block;\n\tfont-family:\n\t\t-apple-system,\n\t\tBlinkMacSystemFont,\n\t\tSegoe UI,\n\t\tHelvetica,\n\t\tArial,\n\t\tsans-serif,\n\t\tApple Color Emoji,\n\t\tSegoe UI Emoji,\n\t\tSegoe UI Symbol;\n\tfont-weight: 600;\n\tfont-size: 80%;\n\ttext-transform: uppercase;\n\tletter-spacing: 0.06rem;\n\tborder-radius: 4px;\n\tpadding: 0 0.2rem;\n\tcolor: ',
-				' !important;\n\tbackground-color: ',
-				' !important;\n',
-			],
-			[
-				'\n\tdisplay: inline-block;\n\tfont-family:\n\t\t-apple-system,\n\t\tBlinkMacSystemFont,\n\t\tSegoe UI,\n\t\tHelvetica,\n\t\tArial,\n\t\tsans-serif,\n\t\tApple Color Emoji,\n\t\tSegoe UI Emoji,\n\t\tSegoe UI Symbol;\n\tfont-weight: 600;\n\tfont-size: 80%;\n\ttext-transform: uppercase;\n\tletter-spacing: 0.06rem;\n\tborder-radius: 4px;\n\tpadding: 0 0.2rem;\n\tcolor: ',
-				' !important;\n\tbackground-color: ',
-				' !important;\n',
-			],
-		)),
-	function (props) {
-		var _a
-		return (_a = getPublishingStatusColors(props.$status)) === null ||
-			_a === void 0
-			? void 0
-			: _a.publishingStatusFg
-	},
-	function (props) {
-		var _a
-		return (_a = getPublishingStatusColors(props.$status)) === null ||
-			_a === void 0
-			? void 0
-			: _a.publishingStatusBg
-	},
-)
-exports.StyledSpinner = styled_components_1.default.div(
-	templateObject_6 ||
-		(templateObject_6 = __makeTemplateObject(
-			[
-				'\n\tdisplay: inline-block;\n\twidth: 1em;\n\tanimation: rotate 1s infinite;\n\t@keyframes rotate {\n\t\tfrom {\n\t\t\ttransform: rotate(0deg);\n\t\t}\n\t\tto {\n\t\t\ttransform: rotate(360deg);\n\t\t}\n\t}\n',
-			],
-			[
-				'\n\tdisplay: inline-block;\n\twidth: 1em;\n\tanimation: rotate 1s infinite;\n\t@keyframes rotate {\n\t\tfrom {\n\t\t\ttransform: rotate(0deg);\n\t\t}\n\t\tto {\n\t\t\ttransform: rotate(360deg);\n\t\t}\n\t}\n',
-			],
-		)),
-)
-var templateObject_1,
-	templateObject_2,
-	templateObject_3,
-	templateObject_4,
-	templateObject_5,
-	templateObject_6
+export const StyledContentTreeNodePublishingStatus = styled.div`
+	display: inline-block;
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		Segoe UI,
+		Helvetica,
+		Arial,
+		sans-serif,
+		Apple Color Emoji,
+		Segoe UI Emoji,
+		Segoe UI Symbol;
+	font-weight: 600;
+	font-size: 80%;
+	text-transform: uppercase;
+	letter-spacing: 0.06rem;
+	border-radius: 4px;
+	padding: 0 0.2rem;
+	color: ${(props) => getPublishingStatusColors(props.$status)?.publishingStatusFg} !important;
+	background-color: ${(props) => getPublishingStatusColors(props.$status)?.publishingStatusBg} !important;
+`
+export const StyledSpinner = styled.div`
+	display: inline-block;
+	width: 1em;
+	animation: rotate 1s infinite;
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+`
