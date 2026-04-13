@@ -10,6 +10,7 @@
 			"import": "./dist/index.js"
 		}
 	},
+	"files": ["dist", "README.md", "LICENSE"],
 	"author": "foomo",
 	"license": "MIT",
 	"scripts": {

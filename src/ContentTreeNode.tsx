@@ -1,6 +1,6 @@
 import { type ReactElement, useState } from 'react'
 
-import { Icon, type IconId } from './Icons'
+import { Icon, type IconId } from './Icons.js'
 
 export interface ContentTreeNodeProps {
 	id: string

@@ -1,9 +1,9 @@
 import type { PageAppSDK } from '@contentful/app-sdk'
 import type { PlainClientAPI } from 'contentful-management'
 import { type ReactElement, useEffect, useState } from 'react'
-import { ContentTreeRoot } from './ContentTreeRoot'
-import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
-import type { IconId } from './Icons'
+import { ContentTreeRoot } from './ContentTreeRoot.js'
+import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils.js'
+import type { IconId } from './Icons.js'
 
 export interface ContentTreeProps {
 	sdkInstance: PageAppSDK

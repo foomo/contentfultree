@@ -1,6 +1,6 @@
 import type { EntryProps, KeyValueMap } from 'contentful-management'
-import type { ContentTreeNodeProps } from './ContentTreeNode'
-import type { IconId } from './Icons'
+import type { ContentTreeNodeProps } from './ContentTreeNode.js'
+import type { IconId } from './Icons.js'
 
 export const emptyNodeProps = (): ContentTreeNodeProps => {
 	return { id: '', name: '', expand: false, parentId: '' }
