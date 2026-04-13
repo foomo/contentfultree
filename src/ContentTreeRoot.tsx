@@ -7,9 +7,9 @@ import type {
 } from 'contentful-management'
 import { type ReactElement, useEffect, useState } from 'react'
 
-import { ContentTreeNode, type ContentTreeNodeProps } from './ContentTreeNode'
-import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils'
-import type { IconId } from './Icons'
+import { ContentTreeNode, type ContentTreeNodeProps } from './ContentTreeNode.js'
+import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils.js'
+import type { IconId } from './Icons.js'
 
 export interface ContentTreeRootProps {
 	node: ContentTreeNodeProps
