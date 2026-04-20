@@ -10,7 +10,11 @@
 			"import": "./dist/index.js"
 		}
 	},
-	"files": ["dist", "README.md", "LICENSE"],
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
 	"author": "foomo",
 	"license": "MIT",
 	"scripts": {
@@ -21,10 +25,10 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.11",
-		"@contentful/app-sdk": "4.53.1",
+		"@biomejs/biome": "2.4.12",
+		"@contentful/app-sdk": "4.54.0",
 		"@types/react": "19.2.14",
-		"typescript": "6.0.2"
+		"typescript": "6.0.3"
 	},
 	"peerDependencies": {
 		"@contentful/app-sdk": ">=4",
