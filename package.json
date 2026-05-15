@@ -25,8 +25,8 @@
 		"lint": "biome check --write ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.13",
-		"@contentful/app-sdk": "4.56.0",
+		"@biomejs/biome": "2.4.15",
+		"@contentful/app-sdk": "^4.56.1",
 		"@types/react": "19.2.14",
 		"typescript": "6.0.3"
 	},
