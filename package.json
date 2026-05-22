@@ -26,8 +26,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
-		"@contentful/app-sdk": "^4.56.1",
-		"@types/react": "19.2.14",
+		"@contentful/app-sdk": "^4.57.0",
+		"@types/react": "19.2.15",
 		"typescript": "6.0.3"
 	},
 	"peerDependencies": {

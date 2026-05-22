@@ -19,11 +19,11 @@ importers:
         specifier: 2.4.15
         version: 2.4.15
       '@contentful/app-sdk':
-        specifier: ^4.56.1
-        version: 4.56.1
+        specifier: ^4.57.0
+        version: 4.57.0
       '@types/react':
-        specifier: 19.2.14
-        version: 19.2.14
+        specifier: 19.2.15
+        version: 19.2.15
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -87,21 +87,21 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@contentful/app-sdk@4.56.1':
-    resolution: {integrity: sha512-rEbsNz+naCE9oV0RxgFlG+G1Q1gCam5OJC9mneDP9Ku7dw2u7p+k1KR0wbqCuE6I3IPt7w8L+B5/uSWCIUTq/A==}
+  '@contentful/app-sdk@4.57.0':
+    resolution: {integrity: sha512-GbmOCytf3Ij/2U+hJuQ9QOihIbEhUrgeh1DH3gSdsSG3GP4Rj2WscPDNHwzQsAqk1eTdwT4LfLkCvXo152Thug==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
     engines: {node: '>=6.0.0'}
 
-  '@rollup/rollup-linux-x64-gnu@4.60.3':
-    resolution: {integrity: sha512-DAZDBHQfG2oQuhY7mc6I3/qB4LU2fQCjRvxbDwd/Jdvb9fypP4IJ4qmtu6lNjes6B531AI8cg1aKC2di97bUxA==}
+  '@rollup/rollup-linux-x64-gnu@4.60.4':
+    resolution: {integrity: sha512-Boiz5+MsaROEWDf+GGEwF8VMHGhlUoQMtIPjOgA5fv4osupqTVnJteQNKJwUcnUog2G55jYXH7KZFFiJe0TEzQ==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@types/react@19.2.14':
-    resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
+  '@types/react@19.2.15':
+    resolution: {integrity: sha512-eRwcGNHve+E8qtEQSSRl6urh+rFop4v8gm6O8rGv25CodbvFdLjA1vVQ1KkiFE0w0UPOnb8tDiFKL5lp0rtY5Q==}
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -250,8 +250,8 @@ packages:
     resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
     engines: {node: '>=10'}
 
-  qs@6.15.1:
-    resolution: {integrity: sha512-6YHEFRL9mfgcAvql/XhwTvf5jKcOiiupt2FiJxHkiX1z4j7WL8J/jRHYLluORvc1XxB5rV20KoeK00gVJamspg==}
+  qs@6.15.2:
+    resolution: {integrity: sha512-Rzq0KEyX/w/tEybncDgdkZrJgVUsUMk3xjh3t5bv3S1HTAtg+uOYt72+ZfwiQwKdysThkTBdL/rTi6HDmX9Ddw==}
     engines: {node: '>=0.6'}
 
   react@19.2.4:
@@ -316,7 +316,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.4.15':
     optional: true
 
-  '@contentful/app-sdk@4.56.1':
+  '@contentful/app-sdk@4.57.0':
     dependencies:
       contentful-management: 12.5.0
     transitivePeerDependencies:
@@ -325,10 +325,10 @@ snapshots:
 
   '@contentful/rich-text-types@16.8.5': {}
 
-  '@rollup/rollup-linux-x64-gnu@4.60.3':
+  '@rollup/rollup-linux-x64-gnu@4.60.4':
     optional: true
 
-  '@types/react@19.2.14':
+  '@types/react@19.2.15':
     dependencies:
       csstype: 3.2.3
 
@@ -381,9 +381,9 @@ snapshots:
       fast-copy: 3.0.2
       lodash: 4.18.1
       process: 0.11.10
-      qs: 6.15.1
+      qs: 6.15.2
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.60.3
+      '@rollup/rollup-linux-x64-gnu': 4.60.4
 
   csstype@3.2.3: {}
 
@@ -485,7 +485,7 @@ snapshots:
 
   proxy-from-env@2.1.0: {}
 
-  qs@6.15.1:
+  qs@6.15.2:
     dependencies:
       side-channel: 1.1.0
 
