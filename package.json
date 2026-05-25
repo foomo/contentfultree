@@ -22,7 +22,8 @@
 		"build": "tsc -b",
 		"rebuild": "pnpm clean && pnpm build",
 		"dev": "pnpm tsc -b tsconfig.json -w",
-		"lint": "biome check --write ."
+		"lint": "biome check --write .",
+		"deps:dedupe": "pnpm dedupe && git diff --quiet pnpm-lock.yaml || (echo 'Lockfile changed — review and commit.' && git diff --stat pnpm-lock.yaml)"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
