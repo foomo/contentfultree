@@ -6,8 +6,8 @@ import type {
 	PlainClientAPI,
 } from 'contentful-management'
 import { type ReactElement, useEffect, useState } from 'react'
-
-import { ContentTreeNode, type ContentTreeNodeProps } from './ContentTreeNode.js'
+import type { ContentTreeNodeProps } from './ContentTreeNode.js'
+import { ContentTreeNode } from './ContentTreeNode.js'
 import { cfEntriesToNodes, emptyNodeProps } from './ContentTreeUtils.js'
 import type { IconId } from './Icons.js'
 

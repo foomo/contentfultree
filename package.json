@@ -29,7 +29,7 @@
 		"@biomejs/biome": "2.5.4",
 		"@contentful/app-sdk": "^4.65.0",
 		"@types/react": "19.2.17",
-		"typescript": "6.0.3"
+		"typescript": "7.0.2"
 	},
 	"peerDependencies": {
 		"@contentful/app-sdk": ">=4",

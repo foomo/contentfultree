@@ -1,7 +1,7 @@
 import type { PageAppSDK } from '@contentful/app-sdk';
 import type { PlainClientAPI } from 'contentful-management';
 import { type ReactElement } from 'react';
-import { type ContentTreeNodeProps } from './ContentTreeNode.js';
+import type { ContentTreeNodeProps } from './ContentTreeNode.js';
 import type { IconId } from './Icons.js';
 export interface ContentTreeRootProps {
     node: ContentTreeNodeProps;
