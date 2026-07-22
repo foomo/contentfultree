@@ -17,11 +17,11 @@ importers:
         version: 19.2.4
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.5.1
-        version: 2.5.1
+        specifier: 2.5.4
+        version: 2.5.4
       '@contentful/app-sdk':
-        specifier: ^4.60.0
-        version: 4.60.0
+        specifier: ^4.65.0
+        version: 4.65.0(debug@4.4.3)
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
@@ -31,65 +31,65 @@ importers:
 
 packages:
 
-  '@biomejs/biome@2.5.1':
-    resolution: {integrity: sha512-IXWLCxKmae+rI7LOHS1B3EbVisQ6GRAWbhN9msa6KjNCyFWrvKZWR4oUdinaNssrV852OrSHuSPa95h1GPJc7Q==}
+  '@biomejs/biome@2.5.4':
+    resolution: {integrity: sha512-xy5FNE5kQJKyK5MR1gJy6ztXYx4WBAbYGlK04lMEgmyPRWKybY9NFwiG9yo0XdzOU8Xvhj41u034J1ywfoWfMw==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-darwin-arm64@2.5.1':
-    resolution: {integrity: sha512-npqDzvqv7vFaWRiNN1Te71siRgPaqS9MpqgYCdP/CrUbkJ7ApezaeaKjueKHRN/JH/6lRjJQAHi8acQDCAz22w==}
+  '@biomejs/cli-darwin-arm64@2.5.4':
+    resolution: {integrity: sha512-4o3NFRobXHynkgcFVrlZsoDAFtF2ldlEGN8sORSws5ZQqyY4PXnPUIylu4ksfyHuwkfvDREuWh3JK+niRwGq3w==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@2.5.1':
-    resolution: {integrity: sha512-RgwTqPAM8g2tn1j+b5oRjF/DbSBX8a4gwojtuG9XuhfK7GgomvZ9+T+tqjXiVbjLEeGJOoL6VEk8mvRTVeSybw==}
+  '@biomejs/cli-darwin-x64@2.5.4':
+    resolution: {integrity: sha512-D32P5HkU2Y6PySuC/WsVDTOgsDwVFmujzhhhOQjajtATpVWFDXuVd3oRbsWNSEA+aaFzyzZm22szsyydBYlSyQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@2.5.1':
-    resolution: {integrity: sha512-WMcvMLgByyTqVxGlq918NBBYliq9FRR9GAQVETHb+VjGVqXCZFfHlZHC1FX4ibuYY/Hg6TJE3rHU0xVrdJXNRw==}
+  '@biomejs/cli-linux-arm64-musl@2.5.4':
+    resolution: {integrity: sha512-Rpm5/AT1m+DlJmUoYvS4/vXc+0tXJPJ2NQz25TGPyHVF5JrWy75PE0GH6kVxsKtQDuCH4OgzquZq0R4kj/wCVg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-arm64@2.5.1':
-    resolution: {integrity: sha512-yhV35CzZh38VyMvTEXi3JTjxZBs++oCKK9KG8vB6VI5+uvQvZNR3BFWEKKzuOmx9DJJj7sQpZ4LQJcmbGTs3+Q==}
+  '@biomejs/cli-linux-arm64@2.5.4':
+    resolution: {integrity: sha512-pSEfW7B8kTsXUjUxC1xVVK+y85Ht3C5XxZ9gclmC7/3Ku9Vqz8jmI7k0p/BNIjQ6t4sFERI2sFeH73ybiZl6YQ==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-linux-x64-musl@2.5.1':
-    resolution: {integrity: sha512-ANTowtlLmPYm5yeMckWY8Xzb9Ix+JJP3tgHR/n6xRj1VWyIzzWtfRfih9hv9VmClwadpBvZduISZIbBsIlYG3A==}
+  '@biomejs/cli-linux-x64-musl@2.5.4':
+    resolution: {integrity: sha512-aby/PohmmgbShcHqFsZVzG8H6D98+P+A6xRWRrQcLW1pCjabcov5UUlke4UqNQBYTkDQav+jB4zyyDDeKB2GaA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-x64@2.5.1':
-    resolution: {integrity: sha512-J/7uHSX7NfoYDI7HijAkd8lnQIOrRb2W7j3X+tw4R+N5ExvXGsyXFiGdQcfcxfOmNQmZVSQOCDk757fwpzqQcg==}
+  '@biomejs/cli-linux-x64@2.5.4':
+    resolution: {integrity: sha512-FNxojWJkL7EajAuzBgoLe0T2G0y112M4lBrDIFl/DomFTx8yqenYOIdsRLNXvOvBBofE8hJi85LjzLmBDpY7/Q==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-win32-arm64@2.5.1':
-    resolution: {integrity: sha512-zgXnKNgWPC4iPF7Y1lR3STUeCUuZRpD6IiOrC7TZTlh0Lx6FiVUT05myuMQHQ9D+1cc7uyMldi4forE6lp0ivQ==}
+  '@biomejs/cli-win32-arm64@2.5.4':
+    resolution: {integrity: sha512-emoXexPZIPAZkz2RKmA95WJUqK3I5MJNYtwEbL5ESciRzhmFMMyekDhNG8hpeOaK+ZGRDxAU4wvGuA5IHQ0h0w==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@2.5.1':
-    resolution: {integrity: sha512-6uxpR9hvaglANkZemeSiN/FhYgkGasrEGn267eXIWvjrjJ2LhDlk251IhjVJq6MXzkV2/bcXwLwSroLyPtqRZg==}
+  '@biomejs/cli-win32-x64@2.5.4':
+    resolution: {integrity: sha512-U1jaluLw1qQc2Tx7/CeSoL9N5XcqIH+GWjpUAy1ouB5nVjSCMNO+NNHdY3RAs8zxNurLWAdj6pehQdCA2zyU+Q==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
 
-  '@contentful/app-sdk@4.60.0':
-    resolution: {integrity: sha512-0e8V8KNlL9ssz5n0u+zzvSTqniMKU7dEQ3q5VpIld+pA0v5nYMEbTsfVXH+VY/Ifs6Ulf07tXhcdylUX1PtizA==}
+  '@contentful/app-sdk@4.65.0':
+    resolution: {integrity: sha512-8apIN25Yk8Hjyd9k8exod/krv7q/xL34zab+U2gv5W0V2q4Jj6/XFAwz2IzzC/8HlzSWQ6uZ36YRkV4iXFISFg==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -293,44 +293,44 @@ packages:
 
 snapshots:
 
-  '@biomejs/biome@2.5.1':
+  '@biomejs/biome@2.5.4':
     optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 2.5.1
-      '@biomejs/cli-darwin-x64': 2.5.1
-      '@biomejs/cli-linux-arm64': 2.5.1
-      '@biomejs/cli-linux-arm64-musl': 2.5.1
-      '@biomejs/cli-linux-x64': 2.5.1
-      '@biomejs/cli-linux-x64-musl': 2.5.1
-      '@biomejs/cli-win32-arm64': 2.5.1
-      '@biomejs/cli-win32-x64': 2.5.1
+      '@biomejs/cli-darwin-arm64': 2.5.4
+      '@biomejs/cli-darwin-x64': 2.5.4
+      '@biomejs/cli-linux-arm64': 2.5.4
+      '@biomejs/cli-linux-arm64-musl': 2.5.4
+      '@biomejs/cli-linux-x64': 2.5.4
+      '@biomejs/cli-linux-x64-musl': 2.5.4
+      '@biomejs/cli-win32-arm64': 2.5.4
+      '@biomejs/cli-win32-x64': 2.5.4
 
-  '@biomejs/cli-darwin-arm64@2.5.1':
+  '@biomejs/cli-darwin-arm64@2.5.4':
     optional: true
 
-  '@biomejs/cli-darwin-x64@2.5.1':
+  '@biomejs/cli-darwin-x64@2.5.4':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@2.5.1':
+  '@biomejs/cli-linux-arm64-musl@2.5.4':
     optional: true
 
-  '@biomejs/cli-linux-arm64@2.5.1':
+  '@biomejs/cli-linux-arm64@2.5.4':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@2.5.1':
+  '@biomejs/cli-linux-x64-musl@2.5.4':
     optional: true
 
-  '@biomejs/cli-linux-x64@2.5.1':
+  '@biomejs/cli-linux-x64@2.5.4':
     optional: true
 
-  '@biomejs/cli-win32-arm64@2.5.1':
+  '@biomejs/cli-win32-arm64@2.5.4':
     optional: true
 
-  '@biomejs/cli-win32-x64@2.5.1':
+  '@biomejs/cli-win32-x64@2.5.4':
     optional: true
 
-  '@contentful/app-sdk@4.60.0':
+  '@contentful/app-sdk@4.65.0(debug@4.4.3)':
     dependencies:
-      contentful-management: 12.8.0
+      contentful-management: 12.8.0(debug@4.4.3)
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -362,9 +362,9 @@ snapshots:
       - debug
       - supports-color
 
-  axios@1.18.1:
+  axios@1.18.1(debug@4.4.3):
     dependencies:
-      follow-redirects: 1.16.0
+      follow-redirects: 1.16.0(debug@4.4.3)
       form-data: 4.0.6
       https-proxy-agent: 5.0.1
       proxy-from-env: 2.1.0
@@ -398,10 +398,10 @@ snapshots:
       - debug
       - supports-color
 
-  contentful-management@12.8.0:
+  contentful-management@12.8.0(debug@4.4.3):
     dependencies:
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.18.1
+      axios: 1.18.1(debug@4.4.3)
       contentful-sdk-core: 9.4.5
       fast-copy: 3.0.2
       globals: 15.15.0
@@ -451,6 +451,10 @@ snapshots:
   fast-copy@3.0.2: {}
 
   follow-redirects@1.16.0: {}
+
+  follow-redirects@1.16.0(debug@4.4.3):
+    optionalDependencies:
+      debug: 4.4.3
 
   form-data@4.0.5:
     dependencies:
