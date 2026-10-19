@@ -23,11 +23,11 @@
 		"rebuild": "pnpm clean && pnpm build",
 		"dev": "pnpm tsc -b tsconfig.json -w",
 		"lint": "biome check --write .",
-		"deps:dedupe": "pnpm dedupe && git diff --quiet pnpm-lock.yaml || (echo 'Lockfile changed — review and commit.' && git diff --stat pnpm-lock.yaml)"
+		"deps:dedupe": "pnpm dedupe --check"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.14",
-		"@contentful/app-sdk": "^4.70.0",
+		"@biomejs/biome": "2.5.15",
+		"@contentful/app-sdk": "^4.73.0",
 		"@types/react": "19.3.0",
 		"typescript": "7.0.2"
 	},
@@ -35,5 +35,12 @@
 		"@contentful/app-sdk": ">=4",
 		"contentful-management": ">=12",
 		"react": ">=18"
+	},
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^12.0.0",
+			"onFail": "error"
+		}
 	}
 }

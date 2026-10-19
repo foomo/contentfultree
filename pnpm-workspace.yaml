@@ -1,6 +1,8 @@
+autoDedupe: true
 blockExoticSubdeps: true
 dedupePeers: true
+lockfile:
+  includeResolutionSettings: true
 minimumReleaseAge: 10080
-onlyBuiltDependencies:
-  - "@biomejs/biome"
 strictDepBuilds: true
+trustPolicy: no-downgrade
