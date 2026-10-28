@@ -182,8 +182,8 @@ importers:
         specifier: 2.5.15
         version: 2.5.15
       '@contentful/app-sdk':
-        specifier: ^4.73.0
-        version: 4.73.0(debug@4.4.3)
+        specifier: 4.74.0
+        version: 4.74.0(debug@4.4.3)
       '@types/react':
         specifier: 19.3.0
         version: 19.3.0
@@ -250,8 +250,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@contentful/app-sdk@4.73.0':
-    resolution: {integrity: sha512-jsX5uvIx4TqZ2x8YSE+PaNmqFhGknx864Rcv8ss8Pc1hvt7M+XIfI7+lS1GYKd3KPeKG89ht/OVG2L/NkmX+Mw==}
+  '@contentful/app-sdk@4.74.0':
+    resolution: {integrity: sha512-vMid8wN8fqWsW9HNpRQoyCJcTscj8HazNMKoCVCkVagExvH96V8dggn80OMuMwqurAlGduN+k4vCwHrTFxZ2Iw==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -599,7 +599,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.5.15':
     optional: true
 
-  '@contentful/app-sdk@4.73.0(debug@4.4.3)':
+  '@contentful/app-sdk@4.74.0(debug@4.4.3)':
     dependencies:
       contentful-management: 12.15.0(debug@4.4.3)
     transitivePeerDependencies:
