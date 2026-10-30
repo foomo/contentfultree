@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="sesamy" src=".github/assets/contentfultree.png"/>
+  <img alt="sesamy" src=".github/assets/contentfultree.png">
 </p>
 
 # @foomo/contentfultree
@@ -23,11 +23,11 @@ pnpm add @foomo/contentfultree
 
 ### Peer dependencies
 
-| Package | Version |
-|---------|---------|
-| `react` | >= 18 |
-| `@contentful/app-sdk` | >= 4 |
-| `contentful-management` | >= 12 |
+| Package                 | Version |
+| ----------------------- | ------- |
+| `react`                 | >= 18   |
+| `@contentful/app-sdk`   | >= 4    |
+| `contentful-management` | >= 12   |
 
 ### Tailwind CSS setup
 
@@ -68,16 +68,16 @@ const ContentTreePage = ({ sdkInstance, cma }) => (
 
 ## Props
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `sdkInstance` | `PageAppSDK` | Yes | Contentful App SDK instance |
-| `cma` | `PlainClientAPI` | Yes | Contentful Management API client |
-| `rootType` | `string` | Yes | Content type ID of the root entries |
-| `nodeContentTypes` | `string[]` | Yes | Field names that contain child references |
-| `titleFields` | `string[]` | Yes | Field names to use as the display title (first match wins) |
-| `locales` | `string[]` | Yes | Locale codes to support (first is the default) |
-| `indentation` | `number` | No | Base indentation depth in `em` (default: `1`) |
-| `iconRegistry` | `Record<string, IconId>` | No | Maps content type IDs to icon identifiers |
+| Prop               | Type                     | Required | Description                                                |
+| ------------------ | ------------------------ | -------- | ---------------------------------------------------------- |
+| `sdkInstance`      | `PageAppSDK`             | Yes      | Contentful App SDK instance                                |
+| `cma`              | `PlainClientAPI`         | Yes      | Contentful Management API client                           |
+| `rootType`         | `string`                 | Yes      | Content type ID of the root entries                        |
+| `nodeContentTypes` | `string[]`               | Yes      | Field names that contain child references                  |
+| `titleFields`      | `string[]`               | Yes      | Field names to use as the display title (first match wins) |
+| `locales`          | `string[]`               | Yes      | Locale codes to support (first is the default)             |
+| `indentation`      | `number`                 | No       | Base indentation depth in `em` (default: `1`)              |
+| `iconRegistry`     | `Record<string, IconId>` | No       | Maps content type IDs to icon identifiers                  |
 
 ### Available icons
 

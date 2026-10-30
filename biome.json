@@ -1,7 +1,10 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.6.2/schema.json",
 	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "includes": ["**", "!**/dist/**"] },
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**", "!**/dist/**", "!**/pnpm-lock.yaml", "!**/.claude/**"]
+	},
 	"formatter": {
 		"enabled": true,
 		"useEditorconfig": true,
@@ -12,7 +15,7 @@
 		"lineWidth": 80,
 		"attributePosition": "auto",
 		"bracketSpacing": true,
-		"includes": ["**", "!**/dist/**"]
+		"includes": ["**", "!**/dist/**", "!**/pnpm-lock.yaml", "!**/.claude/**"]
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {
