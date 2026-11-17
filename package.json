@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.6.6",
-		"@contentful/app-sdk": "4.74.0",
+		"@contentful/app-sdk": "5.0.1",
 		"@types/react": "19.3.0",
 		"typescript": "7.0.2"
 	},
